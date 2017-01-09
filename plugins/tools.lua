@@ -20,6 +20,7 @@ end
 if text_msg == "del" and msg.reply_to_message_id_ and addgroup and is_owner(msg) or is_momod(msg)  then
 deleteMessages(msg.chat_id_, {[0] = msg.id_,msg.reply_to_message_id_})	
 end
+end	
 	
 return {
   patterns = {
