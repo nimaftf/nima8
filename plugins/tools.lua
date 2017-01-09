@@ -17,13 +17,15 @@ tg.getMessage(msg.chat_id_,msg.reply_to_message_id_)
 tg.sendMessage(msg.chat_id_, 0, 1,'<b>ID: </b>[ '..result.sender_user_id_..' ]', 1, 'html')
 end
 end
+if text_msg == "del" and msg.reply_to_message_and addgroup and is_owner(msg) or is_momod(msg)id_  then
+deleteMessages(msg.chat_id_, {[0] = msg.id_,msg.reply_to_message_id_})	
 end
 	
 return {
   patterns = {
 		"^[/#!](git pull)$",
 		"^[/#!](echo) (.*)$",
-		
+		"^[/#!](del)$",
 		"^[/#!](ids)$",
   },
   run = run
