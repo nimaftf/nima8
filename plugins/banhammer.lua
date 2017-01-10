@@ -1,6 +1,6 @@
 local function run(msg, result ,matches)
 	if matches[1] == 'kick' and is_owner(msg) or is_momod(msg) then
-	if msg.reply_to_message_id_ then
+	if msg.reply_to_message_id_~=0 then
 		tg.getMessage(msg.chat_id_,msg.reply_to_message_id_)
 		tg.changeChatMemberStatus(result.chat_id_, result.sender_user_id_, 'Kicked')
 	elseif msg.text:match("@(.*)") then
@@ -12,7 +12,7 @@ local function run(msg, result ,matches)
 	end
 	end
 		if matches[1] == 'ban' and is_owner(msg) or is_momod(msg) then
-	if msg.reply_to_message_id_ then
+	if msg.reply_to_message_id_~=0 then
 		tg.getMessage(msg.chat_id_,msg.reply_to_message_id_)
 		tg.changeChatMemberStatus(result.chat_id_, result.sender_user_id_, 'Banned')
 	elseif msg.text:match("@(.*)") then
