@@ -638,11 +638,7 @@ end
 if matches[1] == 'unmute' and matches[2] == 'all' then
 unmute_all_group(msg, msg.chat_id,group )
 end		
-if matches[1] == 'setrules' and is_owner(msg) or is_momod(msg) then
-redis:set('rules'..msg.chat_id_,matches[2])
-tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Rules Saved</b>', 1, 'html')
-end	
-				
+        			
 if matches[1] == 'settings'  then
 group_settings(msg, msg.chat_id)
 elseif matches[1] == 'lock' then
@@ -736,10 +732,7 @@ unmute_video_group(msg, msg.chat_id)
 end
 				
 end
-if matches[1] == 'rules' and is_owner(msg) or is_momod(msg) then
-rules1 = redis:get('rules'..msg.chat_id_)
-tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Rules :</b>\n'..rules1 , 1, 'html')
-end					
+					
 end
 end
 end
@@ -753,7 +746,6 @@ return {
 		"^[/#!](settings)$",
 		"^[/#!](rules)$",
 		"^[/#!](setlink) (.*)$",
-		"^[/#!](setrules) (.*)$",
 "^!!!edit:[/#!](lock) (.*)$",
 "^!!!edit:[/#!](unlock) (.*)$",
 "^!!!edit:[/#!](mute) (.*)$",
