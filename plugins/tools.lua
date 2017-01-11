@@ -25,15 +25,13 @@ end
 if matches[1] == 'invite' and is_sudo(msg) then
 tg.addChatMember(msg.chat_id_, string.sub(input, 9), 20)
 end]]	
-if matches[1] == 'setrules' and is_owner(msg) or is_momod(msg) and addgroup then
-local text = matches[2]
---pmm = text 
-tg.sendMessage(msg.chat_id_, 0, 1, '<b>Rules supergroup </b>[ <code>'..msg.chat_id_..'</code> ]<b> saved</b>' , 1, 'html')
-elseif matches[1] == 'rules' and is_owner(msg) or is_momod(msg) and addgroup then
---if pmm == nil then
---tg.sendMessage(msg.chat_id_, 0, 1, '<b>rules not exist</b>' , 1, 'html')
---else
-tg.sendMessage(msg.chat_id_, 0, 1,'<b>Rules supergroup </b>[ <code>'..msg.chat_id_..'</code> ]: \n'..text, 1, 'html')
+if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then
+redis:set('link'..msg.chat_id_,matches[2])
+tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
+end		
+if matches[1] == 'link' and is_owner(msg) or is_momod(msg) and addgroup then
+link = redis:get('link'..msg.chat_id_)
+tg.sendMessage(msg.chat_id_, 0, 1, 'Group Link :\n'..link , 1, 'html')
 --end
 end	
 	
@@ -44,8 +42,8 @@ return {
 		"^[/#!](git pull)$",
 		"^[/#!](echo) (.*)$",
 		--"^[/#!](invite)$",
-		"^[/#!](rules)$",
-		"^[/#!](setrules) (.*)$",	
+		"^[/#!](link)$",
+		"^[/#!](setlink) (.*)$",	
 		--"^[/#!](del)$",
 		"^[/#!](ids)$",
   },
