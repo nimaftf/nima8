@@ -626,11 +626,7 @@ pm = '<b>SuperGroup ID:</b> <code>['..msg.chat_id_..']</code>\n<b>User ID:</b> <
 --local user_id = msg.sender_user_id_
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html') 
 end		
-if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) then
-redis:set('link'..msg.chat_id_,matches[2])
-tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
-end	
-	
+        
 if is_momod(msg) or is_owner(msg) then	
 if matches[1] == 'mute' and matches[2] == 'all' then
 mute_all_group(msg, msg.chat_id)
@@ -732,7 +728,10 @@ unmute_video_group(msg, msg.chat_id)
 end
 				
 end
-					
+if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) then
+redis:set('link'..msg.chat_id_,matches[2])
+tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
+end						
 end
 end
 end
