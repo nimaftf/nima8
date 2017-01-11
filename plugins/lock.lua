@@ -630,18 +630,19 @@ if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) then
 redis:set('link'..msg.chat_id_,matches[2])
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
 end	
-if matches[1] == 'setrules' and is_owner(msg) or is_momod(msg) then
-redis:set('rules'..msg.chat_id_,matches[2])
-tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Rules Saved</b>', 1, 'html')
-end	
-		
+	
 if is_momod(msg) or is_owner(msg) then	
 if matches[1] == 'mute' and matches[2] == 'all' then
 mute_all_group(msg, msg.chat_id)
 end		
 if matches[1] == 'unmute' and matches[2] == 'all' then
 unmute_all_group(msg, msg.chat_id,group )
-end			
+end		
+if matches[1] == 'setrules' and is_owner(msg) or is_momod(msg) then
+redis:set('rules'..msg.chat_id_,matches[2])
+tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Rules Saved</b>', 1, 'html')
+end	
+				
 if matches[1] == 'settings'  then
 group_settings(msg, msg.chat_id)
 elseif matches[1] == 'lock' then
