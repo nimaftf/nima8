@@ -734,7 +734,12 @@ unmute_voice_group(msg, msg.chat_id)
 elseif matches[2] == 'video' then
 unmute_video_group(msg, msg.chat_id)
 end
+				
 end
+if matches[1] == 'rules' and is_owner(msg) or is_momod(msg) then
+rules1 = redis:get('rules'..msg.chat_id_)
+tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Rules :</b>\n'..rules1 , 1, 'html')
+end					
 end
 end
 end
@@ -746,6 +751,7 @@ return {
 	"^[/#!](unmute) (.*)$",
 		"^[/#!](id)$",
 		"^[/#!](settings)$",
+		"^[/#!](rules)$",
 		"^[/#!](setlink) (.*)$",
 		"^[/#!](setrules) (.*)$",
 "^!!!edit:[/#!](lock) (.*)$",
