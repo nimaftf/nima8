@@ -25,16 +25,7 @@ end
 if matches[1] == 'invite' and is_sudo(msg) then
 tg.addChatMember(msg.chat_id_, string.sub(input, 9), 20)
 end]]	
-if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then
-redis:set('link'..msg.chat_id_,matches[2])
-tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
-end	
-	
---[[if matches[1] == 'link' and is_owner(msg) or is_momod(msg) and addgroup then
-link1 = redis:get('link'..msg.chat_id_)
-tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link :</b>\n'..link1 , 1, 'html')
 
-end	]]
 	
 end	
 	
@@ -43,9 +34,7 @@ return {
 		"^[/#!](git pull)$",
 		"^[/#!](echo) (.*)$",
 		--"^[/#!](invite)$",
-		--"^[/#!](link)$",
-		"^[/#!](setlink) (.*)$",
-		"^[/#!](link)$",
+		
 		--"^[/#!](del)$",
 		--"^[/#!](ids)$",
   },
