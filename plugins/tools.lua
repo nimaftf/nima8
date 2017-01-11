@@ -28,11 +28,12 @@ end]]
 if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then
 redis:set('link'..msg.chat_id_,matches[2])
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
-end		
+end	
+	
 if matches[1] == 'link' and is_owner(msg) or is_momod(msg) and addgroup then
 link = redis:get('link'..msg.chat_id_)
-tg.sendMessage(msg.chat_id_, 0, 1, 'Group Link :\n'..link , 1, 'html')
---end
+tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link :</b>\n'..link , 1, 'html')
+
 end	
 	
 end	
