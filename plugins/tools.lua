@@ -28,7 +28,7 @@ end
 	
 if matches[1] == 'setrules' and is_owner(msg) or is_momod(msg) and addgroup then
 text = matches[2]
-pmm == text 
+pmm = text 
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Rules supergroup </b>[<code> '..msg.sender_user_id_..'</code> ]<b> saved</b>' , 1, 'html')
 elseif matches[1] == 'rules' and is_owner(msg) or is_momod(msg) and addgroup then
 if pmm == nil then
