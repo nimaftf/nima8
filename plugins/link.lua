@@ -12,8 +12,7 @@ end
 end
 return {
   patterns = {
-		​		
-"^[/#!](link)$",
+		"^[/#!](link)$",
  },
   run = run
 }
