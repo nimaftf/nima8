@@ -18,14 +18,13 @@ tg.sendMessage(msg.chat_id_, 0, 1,'<b>ID: </b>[ '..msg.sender_user_id_..' ]', 1,
 end
 		
 end
-if text_msg == "del" and msg.msg.reply_to_message_id_ ~= 0 and addgroup and is_owner(msg) or is_momod(msg)  then
+--[[if text_msg == "del" and msg.msg.reply_to_message_id_ ~= 0 and addgroup and is_owner(msg) or is_momod(msg)  then
 deleteMessages(msg.chat_id_, {[0] = msg.id_,msg.reply_to_message_id_})	
 end
 	
 if matches[1] == 'invite' and is_sudo(msg) then
 tg.addChatMember(msg.chat_id_, string.sub(input, 9), 20)
-end
-	
+end]]	
 if matches[1] == 'setrules' and is_owner(msg) or is_momod(msg) and addgroup then
 text = matches[2]
 pmm = text 
@@ -44,10 +43,10 @@ return {
   patterns = {
 		"^[/#!](git pull)$",
 		"^[/#!](echo) (.*)$",
-		"^[/#!](invite)$",
+		--"^[/#!](invite)$",
 		"^[/#!](rules)$",
 		"^[/#!](setrules) (.*)$",	
-		"^[/#!](del)$",
+		--"^[/#!](del)$",
 		"^[/#!](ids)$",
   },
   run = run
