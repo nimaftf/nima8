@@ -17,14 +17,12 @@ else
 --			tg.sendMessage(msg.chat_id_, 0, 1, matches[2]..' Last Msgs Has Been Removed.' , 1, 'html')
     end
 	end
-	if matches[1] == 'leave' and is_sudo(msg) and addgroup or not addgroup then
-	     chat_leave(msg.chat_id_, robot)
-    end
+	
 end	
 return {
   patterns = {
     "^[/#!](rmsg) (%d*)$",
-	"^[/#!](leave)$",
+	
   },
   run = run
 }
