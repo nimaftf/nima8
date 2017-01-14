@@ -50,7 +50,7 @@ if group_lock_tgservice == 'yes' and is_tgservice_msg then
     end 
 end]]
 local group_lock_tgservice = group[tostring(msg.chat_id)]['settings']['lock_tgservice']
-local is_tgservice_msg = msg.text:match("!!!tgservice:")
+local is_tgservice_msg = msg.text:match("!!!tgservice:joinbylink")
 if group_lock_tgservice == 'yes' and is_tgservice_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
