@@ -1,3 +1,6 @@
+local chat_leave = function(chat_id,user_id)
+   changeChatMemberStatus(chat_id, user_id, "Left")
+end
 local function run(msg, matches)
 local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id)]
