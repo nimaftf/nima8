@@ -12,9 +12,9 @@ else
         for i= id - matches[2] , id do 
 --        delete_msg(msg.chat_id_,{[0] = i})
 		tg.deleteMessages(msg.chat_id_, {[0] = i })
-		tg.sendMessage(msg.chat_id_, msg.id_, 1, '<code>'..matches[2]..'</code> <b>Last Msgs Has Been Removed</b>', 1, 'html')		
+				
         end
---			tg.sendMessage(msg.chat_id_, msg.id_, 1, '<code>'..matches[2]..'</code> <b>Last Msgs Has Been Removed</b>', 1, 'html')
+			tg.sendMessage(msg.chat_id_, msg.id_, 1, '<code>'..matches[2]..'</code> <b>Last Msgs Has Been Removed</b>', 1, 'html')
 --			tg.sendMessage(msg.chat_id_, 0, 1, matches[2]..' Last Msgs Has Been Removed.' , 1, 'html')
     end
 	end
