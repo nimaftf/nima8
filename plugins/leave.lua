@@ -1,4 +1,4 @@
-local chat_leave = function(chat_id,user_id)
+function chat_leave (chat_id,user_id)
    changeChatMemberStatus(chat_id, user_id, "Left")
 end
 local function run(msg, matches)
