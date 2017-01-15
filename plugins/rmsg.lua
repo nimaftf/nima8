@@ -1,7 +1,7 @@
 local function run(msg, matches)
 local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id)]
-  	if matches[1] == 'rmsg' --[[and is_momod(msg.sender_user_id_, msg.chat_id_)]] and addgroup and is_owner(msg) or is_momod(msg) then
+  	if matches[1] == 'rmsg' and addgroup and is_owner(msg) or is_momod(msg) then
 --       local delnumb = {string.match(text, "^[#/!](del) (%d+)$")} 
 	   if tonumber(matches[2]) > 40 then
 --			send(msg.chat_id_, msg.id_, 1, 'Error\nuse /del [1-40]', 1, 'md')
