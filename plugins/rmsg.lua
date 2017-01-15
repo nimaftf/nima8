@@ -3,7 +3,7 @@ local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id)]
   	if matches[1] == 'rmsg' --[[and is_momod(msg.sender_user_id_, msg.chat_id_)]] and addgroup and is_owner(msg) or is_momod(msg) then
 --       local delnumb = {string.match(text, "^[#/!](del) (%d+)$")} 
-	   if tonumber(matches[2]) > 40 then
+	   if tonumber(matches[2]) > 10000 then
 --			send(msg.chat_id_, msg.id_, 1, 'Error\nuse /del [1-40]', 1, 'md')
             pm = '<b>More than</b> <code>1</code> <b>and less than</b> <code>40</code>'
 			tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'html')
