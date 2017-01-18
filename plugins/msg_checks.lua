@@ -29,7 +29,7 @@ if msg.content_.members_[0].username_ and msg.content_.members_[0].username_:mat
 local group_lock_bot = group[tostring(msg.chat_id)]['settings']['lock_bot']
 if group_lock_bot == 'yes' then   
 chat_kick(msg.chat_id_, msg.content_.members_[0].id_)   
---return false  
+return false  
 end 
 end
 local group_lock_inline = group[tostring(msg.chat_id)]['settings']['lock_inline']
@@ -61,7 +61,7 @@ local _nl, ctrl_chars = string.gsub(msg.text, '%c', '')
 local _nl, real_digits = string.gsub(msg.text, '%d', '')
 if group_lock_spam == "yes" and string.len(msg.text) > 2049 or ctrl_chars > 40 or real_digits > 2000 then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
-tg.chat_del_user(msg.chat_id_, msg.sender_user_id_)             
+--tg.chat_del_user(msg.chat_id_, msg.sender_user_id_)             
 end
 local group_mute_video = group[tostring(msg.chat_id)]['settings']['mute_video']
 local is_video_msg = msg.text:match("!!!video:")
@@ -118,10 +118,10 @@ local is_foshh_msg = msg.text:match("madar") or msg.text:match("mather") or msg.
 if group_fosh_lock == 'yes' and is_fosh_msg or is_foshh_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_reply_lock = group[tostring(msg.chat_id)]['settings']['lock_fosh']
+--[[local group_reply_lock = group[tostring(msg.chat_id)]['settings']['lock_fosh']
 if group_reply_lock == 'yes' and msg.reply_to_message_id_~=0 then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
-end
+end]]
 end
 end
 end
