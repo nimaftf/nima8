@@ -26,7 +26,7 @@ if group_lock_persian == 'yes' and is_persian_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 if msg.content_.members_[0].username_ and msg.content_.members_[0].username_:match("[Bb][Oo][Tt]$") then 
-endlocal group_lock_bot = group[tostring(msg.chat_id)]['settings']['lock_bot']
+local group_lock_bot = group[tostring(msg.chat_id)]['settings']['lock_bot']
 if group_lock_bot == 'yes' then   
 chat_kick(msg.chat_id_, msg.content_.members_[0].id_)   
 --return false  
