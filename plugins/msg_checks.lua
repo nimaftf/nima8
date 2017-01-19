@@ -46,14 +46,36 @@ if group_lock_tgservice == 'yes' and is_tgservice_msg then
         tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ }) 
     end 
 end]]
-local group_lock_tgservice = group[tostring(msg.chat_id)]['settings']['lock_tgservice']
+--[[local group_lock_tgservice = group[tostring(msg.chat_id)]['settings']['lock_tgservice']
 local is_tgservice_msg = msg.text:match("!!!tgservice:joinbylink")
 if group_lock_tgservice == 'yes' and is_tgservice_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end]]
+if msg.adduser or msg.joinuser or msg.deluser then
+local group_lock_tgservice = group[tostring(msg.chat_id)]['settings']['lock_tgservice']                
+if group_lock_tgservice == "yes" then
+tdcli.deleteMessages(msg.chat_id_, {[0] = tonumber(msg.id_)})
+--tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })                    
 end
+end  
+local group_lock_contact = group[tostring(msg.chat_id)]['settings']['lock_contact']
+local is_contact_msg = msg.text:match("!!!contact:")
+if group_lock_contact == 'yes' and is_contact_msg then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end   
+local group_lock_location = group[tostring(msg.chat_id)]['settings']['lock_location']
+local is_location_msg = msg.text:match("!!!location:")
+if group_lock_location == 'yes' and is_location_msg then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end       
 local group_lock_sticker = group[tostring(msg.chat_id)]['settings']['lock_sticker']
 local is_sticker_msg = msg.text:match("!!!sticker:")
 if group_lock_sticker == 'yes' and is_sticker_msg then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end            
+local group_lock_game = group[tostring(msg.chat_id)]['settings']['lock_game']
+local is_game_msg = msg.text:match("!!!game:")
+if group_lock_game == 'yes' and is_game_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 local group_lock_spam = group[tostring(msg.chat_id)]['settings']['lock_spam']
@@ -113,7 +135,7 @@ if group_tag_lock == 'yes' and is_tag_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 local group_fosh_lock = group[tostring(msg.chat_id)]['settings']['lock_fosh']
-local is_fosh_msg = msg.text:match("مادر") or msg.text:match("پدر") or msg.text:match("خواهر") or msg.text:match("مار") or msg.text:match("تمار") or msg.text:match("خار") or msg.text:match("کص") or msg.text:match("کس") or msg.text:match("کیر") or msg.text:match("کاندوم") or msg.text:match("شورت") or msg.text:match("ننه") or msg.text:match("مامان") or msg.text:match("شارژ") or msg.text:match("کد") or msg.text:match("همراه اول") or msg.text:match("ایرانسل") or msg.text:match("رایتل") 
+local is_fosh_msg = msg.text:match("مادر") or msg.text:match("پدر") or msg.text:match("خواهر") or msg.text:match("مار") or msg.text:match("تمار") or msg.text:match("خار") or msg.text:match("کص") or msg.text:match("کس") or msg.text:match("کیر") or msg.text:match("کاندوم") or msg.text:match("شورت") or msg.text:match("ننه") or msg.text:match("شارژ") or msg.text:match("کد") or msg.text:match("همراه اول") or msg.text:match("ایرانسل") or msg.text:match("رایتل") 
 local is_foshh_msg = msg.text:match("madar") or msg.text:match("mather") or msg.text:match("father") or msg.text:match("pedar") or msg.text:match("khahar") or msg.text:match("khar") or msg.text:match("mar") or msg.text:match("tamar") or msg.text:match("cos") or msg.text:match("koc") or msg.text:match("coc") or msg.text:match("kos") or msg.text:match("kir") or msg.text:match("cir") or msg.text:match("short") or msg.text:match("kandom") or msg.text:match("kandoom") or msg.text:match("nane") or msg.text:match("maman") or msg.text:match("sharg") or msg.text:match("kod") or msg.text:match("cod") or msg.text:match("hamrah aval") or msg.text:match("irancell") or msg.text:match("raitel") or msg.text:match("nnh") or msg.text:match("nne")
 if group_fosh_lock == 'yes' and is_fosh_msg or is_foshh_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
