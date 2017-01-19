@@ -42,6 +42,20 @@ function load_config()
   end
   return config
 end
+
+function msg_valid(msg)
+  if msg.date_ < os.time() - 60 then
+    print('\27[36mOld msg\27[39m')
+    return false
+  end
+  return true
+end
+function match_plugins(msg)
+  for name, plugin in pairs(plugins) do
+    match_plugin(plugin, name, msg)
+  end
+end
+
 function is_sudo(msg)
   local var = false
   for v, user in pairs(_config.sudo_users) do
@@ -438,8 +452,27 @@ function tdcli_update_callback(data)
         if msg.content_.caption_ then
           msg.text = msg.text .. msg.content_.caption_
         end
-      elseif msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == "MessageChatDeleteMember" or msg.content_.ID == "MessageChatChangeTitle" or msg.content_.ID == "MessageChatChangePhoto" or msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageGameScore"  then
-        msg.text = "!!!tgservice:joinbylink"
+      --[[elseif msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == "MessageChatDeleteMember" or msg.content_.ID == "MessageChatChangeTitle" or msg.content_.ID == "MessageChatChangePhoto" or msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageGameScore"  then
+        msg.text = "!!!tgservice:joinbylink"]]
+        
+      elseif msg.content_.ID == "MessageChatAddMembers" then
+				if msg_valid(msg) then
+					for i=0,#msg.content_.members_ do
+						msg.adduser = msg.content_.members_[i].id_
+						match_plugins(msg)
+					end
+				end
+		  elseif msg.content_.ID == "MessageChatJoinByLink" then
+				if msg_valid(msg) then
+						msg.joinuser = msg.sender_user_id_
+						match_plugins(msg)
+				end
+      elseif msg.content_.ID == "MessageChatDeleteMember" then
+        if msg_valid(msg) then
+          msg.deluser = true
+          match_plugins(msg)
+        end 
+        
       elseif msg.content_.ID == "MessageSticker" then
         msg.text = "!!!sticker:" .. data.message_.content_.sticker_.emoji_
       elseif msg.content_.document_ then
@@ -447,6 +480,14 @@ function tdcli_update_callback(data)
         if msg.content_.caption_ then
           msg.text = msg.text .. msg.content_.caption_
         end
+        
+      elseif  msg.content_.ID == "MessageContact" then
+        msg.text = "!!!contact:"
+      elseif  msg.content_.ID == "MessageLocation" then
+        msg.text = "!!!location:"  
+      elseif  msg.content_.ID == "MessageGame" then
+        msg.text = "!!!game:"  
+        
       elseif msg.content_.video_ then
         msg.text = "!!!video:"
         if msg.content_.caption_ then
