@@ -45,18 +45,18 @@ if group_lock_tgservice == 'yes' and is_tgservice_msg then
         tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ }) 
     end 
 end]]
---[[local group_lock_tgservice = group[tostring(msg.chat_id)]['settings']['lock_tgservice']
+local group_lock_tgservice = group[tostring(msg.chat_id)]['settings']['lock_tgservice']
 local is_tgservice_msg = msg.text:match("!!!tgservice:joinbylink")
 if group_lock_tgservice == 'yes' and is_tgservice_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
-end]]
-if msg.adduser or msg.joinuser or msg.deluser then
+end
+--[[if msg.adduser or msg.joinuser or msg.deluser then
 local group_lock_tgservice = group[tostring(msg.chat_id)]['settings']['lock_tgservice']                
 if group_lock_tgservice == "yes" then
 tdcli.deleteMessages(msg.chat_id_, {[0] = tonumber(msg.id_)})
 --tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })                    
 end
-end  
+end  ]]
 local group_lock_contact = group[tostring(msg.chat_id)]['settings']['lock_contact']
 local is_contact_msg = msg.text:match("!!!contact:")
 if group_lock_contact == 'yes' and is_contact_msg then
