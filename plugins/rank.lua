@@ -28,18 +28,18 @@ if addgroup then
 	 pm = group[msg.chat_id_]['moderators'][tostring(user_id)]
 	 tg.sendMessage(msg.chat_id_, 0, 1,'<b>ListMod:</b>[ '..pm..' ]', 1, 'html')
 	end]]
-	if matches[1] == 'modlist' then
+	--[[if matches[1] == 'modlist' then
 	     local i = 1
 --[[  if next(data[tostring(msg.chat_id_)]['mods']) == nil then --fix way
     return "_No_ *moderator* _in this group_"
-  end]]
+  end
   local message = '<b>List of moderators :</b> \n'
   for u,g in pairs(group[msg.chat_id_]['moderators'][tostring(user_id)] do
     message = message ..i.. '- '..g..' [' ..u.. '] \n'
    i = i + 1
 end
   tg.sendMessage(msg.chat_id_, 0, 1, message , 1, 'html')
-	end		
+	end]]		
     if setowner then
          group[tostring(msg.chat_id_)]['set_owner'] = tostring(msg.from_id)
          save_data(_config.group.data, group)
