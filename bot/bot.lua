@@ -43,6 +43,12 @@ function load_config()
   return config
 end
 
+function kick_user(user_id, chat_id)
+if not tonumber(user_id) then
+return false
+end 
+tg.changeChatMemberStatus(chat_id, user_id, 'Kicked')
+end
 function msg_valid(msg)
   if msg.date_ < os.time() - 60 then
     print('\27[36mOld msg\27[39m')
