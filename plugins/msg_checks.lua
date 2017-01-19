@@ -57,7 +57,7 @@ tdcli.deleteMessages(msg.chat_id_, {[0] = tonumber(msg.id_)})
 --tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })                    
 end
 end  ]]
-local group_lock_contact = group[tostring(msg.chat_id)]['settings']['lock_contact']
+--[[local group_lock_contact = group[tostring(msg.chat_id)]['settings']['lock_contact']
 local is_contact_msg = msg.text:match("!!!contact:")
 if group_lock_contact == 'yes' and is_contact_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
@@ -76,7 +76,7 @@ local group_lock_game = group[tostring(msg.chat_id)]['settings']['lock_game']
 local is_game_msg = msg.text:match("!!!game:")
 if group_lock_game == 'yes' and is_game_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
-end
+end]]
 local group_lock_spam = group[tostring(msg.chat_id)]['settings']['lock_spam']
 local _nl, ctrl_chars = string.gsub(msg.text, '%c', '')
 local _nl, real_digits = string.gsub(msg.text, '%d', '')
