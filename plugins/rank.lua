@@ -34,8 +34,8 @@ if addgroup then
     return "_No_ *moderator* _in this group_"
   end]]
   local message = '<b>List of moderators :</b> \n'
-  for k,v in pairs(group[msg.chat_id_]['moderators'][tostring(user_id)] do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+  for u,g in pairs(group[msg.chat_id_]['moderators'][tostring(user_id)] do
+    message = message ..i.. '- '..g..' [' ..u.. '] \n'
    i = i + 1
 end
   tg.sendMessage(msg.chat_id_, 0, 1, message , 1, 'html')
