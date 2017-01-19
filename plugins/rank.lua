@@ -206,6 +206,9 @@ return {
 	"^[#!/](promote) (.+)$",
     "^[#!/](demote)$",
 	"^[#!/](demote) (.+)$",
+	"^[#!/](setowner) (.*)$",
+"^[#!/](demote) (.*)$",
+"^[#!/](promote) (.*)$",	
 	--[["^[#!/](muteuser)$",
 	"^[#!/](muteuser) (.+)$",]]	
 	"^(ownerset)$",
