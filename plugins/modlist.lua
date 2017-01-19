@@ -1,4 +1,4 @@
---[[[local function modlist(msg)
+local function modlist(msg)
      local i = 1
 
   local message = '<b>List of moderators :</b> \n'
@@ -7,7 +7,7 @@
    i = i + 1
 end
   tg.sendMessage(msg.chat_id_, 0, 1, message , 1, 'html') 
-end]]
+end
 local function run(msg, matches)
 local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id_)]
