@@ -1,15 +1,13 @@
-local function modlist(msg)
+--[[[local function modlist(msg)
      local i = 1
---[[  if next(data[tostring(msg.chat_id_)]['mods']) == nil then --fix way
-    return "_No_ *moderator* _in this group_"
-  end]]
+
   local message = '<b>List of moderators :</b> \n'
   for k,v in pairs(group[msg.chat_id_]['moderators'][tostring(user_id)] do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
    i = i + 1
 end
   tg.sendMessage(msg.chat_id_, 0, 1, message , 1, 'html') 
-end
+end]]
 local function run(msg, matches)
 local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id_)]
