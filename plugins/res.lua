@@ -55,6 +55,7 @@ end
 return {
 patterns ={
         "^[!/#](id)$",
+        "^[!/#](id) (.*)$",
         "^[!/#](res) (.*)$",
 },
 run=run
