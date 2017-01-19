@@ -45,7 +45,7 @@ if matches[2] and tonumber(msg.reply_to_message_id_) == 0 then
     }, action_by_username, {chat_id=msg.chat_id_,username=matches[2],cmd="id"})
       end
    end    
-if matches[1] == "res" and matches[2] and is_mod(msg) or is_owner(msg) then
+if matches[1] == "res" and matches[2] then
     tg_function ({
       ID = "SearchPublicChat",
       username_ = matches[2]
