@@ -10,6 +10,9 @@ pm = pm..'\n5- <code>Lock Fwd</code> : '..(group[tostring(target)]['settings']['
 pm = pm..'\n6- <code>Lock Fosh</code> : '..(group[tostring(target)]['settings']['lock_fosh'] or 'no')..''
 pm = pm..'\n7- <code>Lock Tgservice</code> : '..(group[tostring(target)]['settings']['lock_tgservice'] or 'no')..''
 pm = pm..'\n8- <code>Lock Sticker</code> : '..(group[tostring(target)]['settings']['lock_sticker'] or 'no')..''
+pm = pm..'\n- <code>Lock Contact</code> : '..(group[tostring(target)]['settings']['lock_contact'] or 'no')..''
+pm = pm..'\n- <code>Lock Location</code> : '..(group[tostring(target)]['settings']['lock_location'] or 'no')..''
+pm = pm..'\n- <code>Lock Game</code> : '..(group[tostring(target)]['settings']['lock_game'] or 'no')..''
 pm = pm..'\n9- <code>Lock Bot</code> : '..(group[tostring(target)]['settings']['lock_bot'] or 'no')..''
 pm = pm..'\n10- <code>Lock Inline</code> : '..(group[tostring(target)]['settings']['lock_inline'] or 'no')..''
 pm = pm..'\n11- <code>Lock Spam</code> : '..(group[tostring(target)]['settings']['lock_spam'] or 'no')..''
@@ -144,6 +147,47 @@ else
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
+
+local function lock_group_contact(msg, target)
+local group = load_data('bot/group.json')
+  local group_contact_lock = group[tostring(target)]['settings']['lock_contact']
+  if group_contact_lock == 'yes' then
+    pm = '<b>Send Contact is already locked</b>'
+  tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+else
+    group[tostring(target)]['settings']['lock_contact'] = 'yes'
+    save_data(_config.group.data, group)
+    pm = '<b>Send Contact has been locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function lock_group_location(msg, target)
+local group = load_data('bot/group.json')
+  local group_location_lock = group[tostring(target)]['settings']['lock_location']
+  if group_location_lock == 'yes' then
+    pm = '<b>Send Location is already locked</b>'
+  tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+else
+    group[tostring(target)]['settings']['lock_location'] = 'yes'
+    save_data(_config.group.data, group)
+    pm = '<b>Send Location has been locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function lock_group_game(msg, target)
+local group = load_data('bot/group.json')
+  local group_game_lock = group[tostring(target)]['settings']['lock_game']
+  if group_game_lock == 'yes' then
+    pm = '<b>Send Game is already locked</b>'
+  tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+else
+    group[tostring(target)]['settings']['lock_game'] = 'yes'
+    save_data(_config.group.data, group)
+    pm = '<b>Send Game has been locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+
 local function lock_group_bot(msg, target)
 local group = load_data('bot/group.json')
   local group_bot_lock = group[tostring(target)]['settings']['lock_bot']
@@ -301,6 +345,47 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
+
+local function unlock_group_contact(msg, target)
+local group = load_data('bot/group.json')
+  local group_contact_lock = group[tostring(target)]['settings']['lock_contact']
+  if group_contact_lock == 'no' then
+    pm = '<b>Send Contact is not locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  else
+    group[tostring(target)]['settings']['lock_contact'] = 'no'
+    save_data(_config.group.data, group)
+    pm= '<b>Send Contact has been unlocked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function unlock_group_location(msg, target)
+local group = load_data('bot/group.json')
+  local group_location_lock = group[tostring(target)]['settings']['lock_location']
+  if group_location_lock == 'no' then
+    pm = '<b>Send Location is not locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  else
+    group[tostring(target)]['settings']['lock_location'] = 'no'
+    save_data(_config.group.data, group)
+    pm= '<b>Send Location has been unlocked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function unlock_group_game(msg, target)
+local group = load_data('bot/group.json')
+  local group_game_lock = group[tostring(target)]['settings']['lock_game']
+  if group_game_lock == 'no' then
+    pm = '<b>Send Game is not locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  else
+    group[tostring(target)]['settings']['lock_game'] = 'no'
+    save_data(_config.group.data, group)
+    pm= '<b>Send Game has been unlocked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+
 local function unlock_group_bot(msg, target)
 local group = load_data('bot/group.json')
   local group_bot_lock = group[tostring(target)]['settings']['lock_bot']
@@ -599,6 +684,9 @@ pm = pm..'\n5- <code>Lock Fwd</code> : '..group[tostring(target)]['settings']['l
 pm = pm..'\n6- <code>Lock Fosh</code> : '..group[tostring(target)]['settings']['lock_fosh']..''
 pm = pm..'\n7- <code>Lock Tgservice</code> : '..group[tostring(target)]['settings']['lock_tgservice']..''
 pm = pm..'\n8- <code>Lock Sticker</code> : '..group[tostring(target)]['settings']['lock_sticker']..''
+pm = pm..'\n- <code>Lock Contact</code> : '..group[tostring(target)]['settings']['lock_contact']..''
+pm = pm..'\n- <code>Lock Location</code> : '..group[tostring(target)]['settings']['lock_location']..''
+pm = pm..'\n- <code>Lock Game</code> : '..group[tostring(target)]['settings']['lock_game']..''
 pm = pm..'\n9- <code>Lock Bot</code> : '..group[tostring(target)]['settings']['lock_bot']..''
 pm = pm..'\n10- <code>Lock Inline</code> : '..group[tostring(target)]['settings']['lock_inline']..''
 pm = pm..'\n11- <code>Lock Spam</code> : '..group[tostring(target)]['settings']['lock_spam']..''
@@ -666,6 +754,14 @@ elseif matches[2] == 'inline' then
 lock_group_inline(msg, msg.chat_id)
 elseif matches[2] == 'sticker' then
 lock_group_sticker(msg, msg.chat_id)
+					
+elseif matches[2] == 'contact' then
+lock_group_contact(msg, msg.chat_id)
+elseif matches[2] == 'location' then
+lock_group_location(msg, msg.chat_id)
+elseif matches[2] == 'game' then
+lock_group_game(msg, msg.chat_id)
+					
 elseif matches[2] == 'all' then
 mute_all_group(msg, msg.chat_id)
 elseif matches[2] == 'photo' then
@@ -711,6 +807,14 @@ elseif matches[2] == 'inline' then
 unlock_group_inline(msg, msg.chat_id)
 elseif matches[2] == 'sticker' then
 unlock_group_sticker(msg, msg.chat_id)
+
+elseif matches[2] == 'contact' then
+unlock_group_contact(msg, msg.chat_id)
+elseif matches[2] == 'location' then
+unlock_group_location(msg, msg.chat_id)
+elseif matches[2] == 'game' then
+unlock_group_game(msg, msg.chat_id)					
+					
 elseif matches[2] == 'all' then
 unmute_all_group(msg, msg.chat_id,group )
 elseif matches[2] == 'photo' then
