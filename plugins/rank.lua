@@ -1,4 +1,16 @@
-
+local function modlist(msg)
+     local i = 1
+if next(group[tostring(msg.chat_id_)]['moderators']) == nil then 
+pm = '<b>No moderator in this group</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'html')
+end
+  local message = '<b>List of moderators :</b> \n'
+  for k,v in pairs(group[tostring(msg.chat_id_)]['moderators']) do
+    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+   i = i + 1
+end
+  tg.sendMessage(msg.chat_id_, 0, 1, message , 1, 'html') 
+end
 
 local function run(msg, matches)
 if not msg.chat_id_ and redis:get('demoteuser2') then
@@ -24,22 +36,9 @@ if addgroup then
 	 pm = group[tostring(msg.chat_id_)]['set_owner']
 	 tg.sendMessage(msg.chat_id_, 0, 1,'<b>owner:</b>[ '..pm..' ]', 1, 'html')
 	end
-	--[[if matches[1] == 'modlist' then
-	 pm = group[msg.chat_id_]['moderators'][tostring(user_id)]
-	 tg.sendMessage(msg.chat_id_, 0, 1,'<b>ListMod:</b>[ '..pm..' ]', 1, 'html')
-	end]]
-	--[[if matches[1] == 'modlist' then
-	     local i = 1
---[[  if next(data[tostring(msg.chat_id_)]['mods']) == nil then --fix way
-    return "_No_ *moderator* _in this group_"
-  end
-  local message = '<b>List of moderators :</b> \n'
-  for u,g in pairs(group[msg.chat_id_]['moderators'][tostring(user_id)] do
-    message = message ..i.. '- '..g..' [' ..u.. '] \n'
-   i = i + 1
-end
-  tg.sendMessage(msg.chat_id_, 0, 1, message , 1, 'html')
-	end]]		
+	if matches[1] == 'modlist' then               
+	return modlist(msg)
+	end		
     if setowner then
          group[tostring(msg.chat_id_)]['set_owner'] = tostring(msg.from_id)
          save_data(_config.group.data, group)
@@ -213,7 +212,7 @@ return {
   patterns = {
     "^[#!/](setowner)$",
  "^[#!/](owner)$",
- --"^[#!/](modlist)$",
+ "^[#!/](modlist)$",
 	"^[#!/](setowner) (.+)$",
     "^[#!/](promote)$",
 	"^[#!/](promote) (.+)$",
