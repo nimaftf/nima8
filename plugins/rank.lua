@@ -213,7 +213,7 @@ return {
   patterns = {
     "^[#!/](setowner)$",
  "^[#!/](owner)$",
- "^[#!/](modlist)$",
+ --"^[#!/](modlist)$",
 	"^[#!/](setowner) (.+)$",
     "^[#!/](promote)$",
 	"^[#!/](promote) (.+)$",
