@@ -9,15 +9,15 @@ end
 if not msg.chat_id_ and redis:get('setowneruser2') then
 msg.chat_id_ = redis:get('setowneruser2')
 end
-if not msg.chat_id_ and redis:get('muteuser2') then
+--[[if not msg.chat_id_ and redis:get('muteuser2') then
 msg.chat_id_ = redis:get('muteuser2')
-end
+end]]
 local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id_)]
 local setowner = redis:get('setowner'..msg.chat_id_) 
 local promote = redis:get('promote'..msg.chat_id_)
 local demote = redis:get('demote'..msg.chat_id_)
-local muteuser = redis:get('muteuser'..msg.chat_id_..msg.chat_id_)
+--local muteuser = redis:get('muteuser'..msg.chat_id_..msg.chat_id_)
 if addgroup then
     if matches[1] == 'owner' then
 	 pm = group[tostring(msg.chat_id_)]['set_owner']
@@ -44,7 +44,7 @@ if promote then
 			tg.sendMessage(msg.chat_id_, 0, 1,'[ '..user_id..' ] <b>has been promoted</b>', 1, 'html')
     	end
     end
-if muteuser then
+--[[if muteuser then
 redis:del('muteuser'..msg.chat_id_..msg.chat_id_ ,true)
 local user_id = msg.from_id
 		if is_muted_user(msg.chat_id_, user_id) then
@@ -54,7 +54,7 @@ local user_id = msg.from_id
              mute_user(msg.chat_id_, user_id)
 			tg.sendMessage(msg.chat_id_, 0, 1,'[ '..user_id..' ] <b>added to the muted user list</b>', 1, 'html')
 		end
-end
+end]]
 if demote then
 		redis:del('demote'..msg.chat_id_ ,true)
 		user_id = msg.from_id
@@ -95,7 +95,7 @@ if matches[1] == 'ownerset2' then
 			tg.sendMessage(msg.chat_id_, 0, 1,'[ '..user_id..' ] <b>has been demoted</b>', 1, 'html')
 		end
 	end
-	if redis:get('muteuser'..msg.chat_id_) then
+	--[[if redis:get('muteuser'..msg.chat_id_) then
 	    redis:del('muteuser'..msg.chat_id_,true)
 		redis:del('muteuser2',true)
 		local user_id = msg.from_id
@@ -106,8 +106,8 @@ if matches[1] == 'ownerset2' then
              mute_user(msg.chat_id_, user_id)
 			tg.sendMessage(msg.chat_id_, 0, 1,'[ '..user_id..' ] <b>added to the muted user list</b>', 1, 'html')
 		end
-	end
-	if redis:get('setowneruser'..msg.chat_id_) then
+	end]]	
+if redis:get('setowneruser'..msg.chat_id_) then
 	    redis:del('setowneruser'..msg.chat_id_,true)
 		redis:del('setowneruser2',true)
 		local user_id = msg.from_id
@@ -150,7 +150,7 @@ if matches[1] == 'promote' and is_owner(msg) then
     	end
 	end
 	end
-if matches[1] == 'muteuser' and is_momod(msg) then
+--[[if matches[1] == 'muteuser' and is_momod(msg) then
 if msg.reply_to_message_id_ ~= 0 then
 		tg.getMessage(msg.chat_id_,msg.reply_to_message_id_)
 		redis:set('muteuser'..msg.chat_id_..msg.chat_id_,msg.from_id)
@@ -170,7 +170,7 @@ if msg.reply_to_message_id_ ~= 0 then
 			tg.sendMessage(msg.chat_id_, 0, 1,'[ '..user_id..' ] <b>added to the muted user list</b>', 1, 'html')
 		end
 	end
-	end
+	end]]
 if matches[1] == 'demote' and is_owner(msg) then
 	if msg.reply_to_message_id_ ~= 0 then
 		tg.getMessage(msg.chat_id_,msg.reply_to_message_id_)
@@ -206,8 +206,8 @@ return {
 	"^[#!/](promote) (.+)$",
     "^[#!/](demote)$",
 	"^[#!/](demote) (.+)$",
-	"^[#!/](muteuser)$",
-	"^[#!/](muteuser) (.+)$",
+	--[["^[#!/](muteuser)$",
+	"^[#!/](muteuser) (.+)$",]]	
 	"^(ownerset)$",
 	"^!!(ownerset2)!!$",
   },
