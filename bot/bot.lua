@@ -458,10 +458,10 @@ function tdcli_update_callback(data)
         if msg.content_.caption_ then
           msg.text = msg.text .. msg.content_.caption_
         end
-      --[[elseif msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == "MessageChatDeleteMember" or msg.content_.ID == "MessageChatChangeTitle" or msg.content_.ID == "MessageChatChangePhoto" or msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageGameScore"  then
-        msg.text = "!!!tgservice:joinbylink"]]
+      elseif msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == "MessageChatDeleteMember" or msg.content_.ID == "MessageChatChangeTitle" or msg.content_.ID == "MessageChatChangePhoto" or msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageGameScore"  then
+        msg.text = "!!!tgservice:joinbylink"
         
-      elseif msg.content_.ID == "MessageChatAddMembers" then
+      --[[ elseif msg.content_.ID == "MessageChatAddMembers" then
 				if msg_valid(msg) then
 					for i=0,#msg.content_.members_ do
 						msg.adduser = msg.content_.members_[i].id_
@@ -477,7 +477,7 @@ function tdcli_update_callback(data)
         if msg_valid(msg) then
           msg.deluser = true
           match_plugins(msg)
-        end 
+        end ]]
         
       elseif msg.content_.ID == "MessageSticker" then
         msg.text = "!!!sticker:" .. data.message_.content_.sticker_.emoji_
@@ -487,7 +487,7 @@ function tdcli_update_callback(data)
           msg.text = msg.text .. msg.content_.caption_
         end
         
-      elseif  msg.content_.ID == "MessageContact" then
+      --[[elseif  msg.content_.ID == "MessageContact" then
         msg.text = "!!!contact:"
 	if msg.content_.caption_ then
           msg.text = msg.text .. msg.content_.caption_
@@ -501,7 +501,7 @@ function tdcli_update_callback(data)
         msg.text = "!!!game:"
 	if msg.content_.caption_ then
           msg.text = msg.text .. msg.content_.caption_
-        end			
+        end	]]		
         
       elseif msg.content_.video_ then
         msg.text = "!!!video:"
