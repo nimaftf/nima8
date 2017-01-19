@@ -25,12 +25,7 @@ local is_persian_msg = msg.text:match("[\216-\219][\128-\191]")
 if group_lock_persian == 'yes' and is_persian_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_lock_bot = group[tostring(msg.chat_id)]['settings']['lock_bot']
-if data.type_.ID == "UserTypeBot" then
-if not is_owner(arg.msg) and group_lock_bot == 'yes' then
-kick_user(data.id_, arg.chat_id)
-end
-end                
+               
 local group_lock_inline = group[tostring(msg.chat_id)]['settings']['lock_inline']
 --local is_inline_msg =  msg.text == "[unsupported]"
 if group_lock_inline == 'yes'  and  msg.via_bot_user_id_ ~= 0 then
