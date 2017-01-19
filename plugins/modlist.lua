@@ -2,7 +2,7 @@ local function modlist(msg)
      local i = 1
 
   local message = '<b>List of moderators :</b> \n'
-  for k,v in pairs(group[msg.chat_id_]['moderators'][tostring(user_id)]) do
+  for k,v in pairs(group[tostring(msg.chat_id_)]['moderators']) do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
    i = i + 1
 end
