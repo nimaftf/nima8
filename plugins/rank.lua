@@ -193,14 +193,14 @@ end
 end
 return {
   patterns = {
-    "^[#!/](setowner)$",
- "^[#!/](owner)$",
- "^[#!/](modlist)$",
-	"^[#!/](setowner) (.+)$",
-    "^[#!/](promote)$",
-	"^[#!/](promote) (.+)$",
-    "^[#!/](demote)$",
-	"^[#!/](demote) (.+)$",
+    --"^[#!/](setowner)$",
+-- "^[#!/](owner)$",
+ --"^[#!/](modlist)$",
+	--"^[#!/](setowner) (.+)$",
+    --"^[#!/](promote)$",
+	--"^[#!/](promote) (.+)$",
+    --"^[#!/](demote)$",
+	--"^[#!/](demote) (.+)$",
 	"^[#!/](muteuser)$",
 	"^[#!/](muteuser) (.+)$",
 	"^(ownerset)$",
