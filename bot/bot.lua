@@ -62,18 +62,6 @@ function match_plugins(msg)
   end
 
 end]]
-local function modlist(msg)
-     local i = 1
---[[  if next(data[tostring(msg.chat_id_)]['mods']) == nil then --fix way
-    return "_No_ *moderator* _in this group_"
-  end]]
-  local message = '<b>List of moderators :</b> \n'
-  for k,v in pairs(group[msg.chat_id_]['moderators'][tostring(user_id)] do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
-   i = i + 1
-end
-  tg.sendMessage(msg.chat_id_, 0, 1, message , 1, 'html') 
-end
 function is_sudo(msg)
   local var = false
   for v, user in pairs(_config.sudo_users) do
