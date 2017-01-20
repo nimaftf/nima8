@@ -659,19 +659,15 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
---[[local floodMax = 5
-local floodTime = 2
-local group = load_data('bot/group.json')
-local hashflood =  group[tostring(target)]['settings']['lock_flood']
-if hashflood == 'yes' and not is_momod(msg) or not is_owner(msg) then
-local hash = 'flood:'..msg.sender_user_id_..':'..msg.chat_id_..':msg-num'
-local msgs = tonumber(redis:get(hash) or 0)
-if msgs > (floodMax - 1) then
-        tg.changeChatMemberStatus(msg.chat_id_, msg.sender_user_id_, "Kicked")
-        tg.sendMessage(msg.chat_id_, 1, 'User _'..msg.sender_user_id_..' has been kicked for #flooding !', 1, 'md')
-redis:setex(hash, floodTime, msgs+1)
+--if data[tostring(target)] then  
+if group[tostring(target)]['settings']['num_msg_max'] then
+NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
+ print('custom'..NUM_MSG_MAX) 
+
+else  
+NUM_MSG_MAX = 5
 end
-end]]
+--end
 local function group_settings(msg, target)
 local group = load_data('bot/group.json')
 pm = '<b>SuperGroup settings</b>\n-------------------------------------------'
@@ -708,6 +704,16 @@ end
 local function run(msg, matches)
 local addgroup = group[tostring(msg.chat_id)]
 if addgroup and is_momod(msg) or is_owner(msg) then
+if matches[1] == 'setflood' and is_mod(msg) then
+if tonumber(matches[2]) < 1 or tonumber(matches[2]) > 50 then
+pm = '<b>Wrong number, range is[</b><code>1-50</code><b>]</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'html') 
+end
+local flood_max = matches[2]
+group[tostring(target)]['settings']['num_msg_max'] = flood_max
+pm1 = '<b>Group flood sensitivity has been set to : [</b><code> "..matches[2].." </code><b>]</b>' 
+tg.sendMessage(msg.chat_id_, 0, 1, pm1 , 1, 'html') 
+end		
 if matches[1] == 'id' then 
 pm = '<b>SuperGroup ID:</b> <code>['..msg.chat_id_..']</code>\n<b>User ID:</b> <code>['..msg.sender_user_id_..']</code>\n\n<b>Channel:</b> @LeaderCH'			
 --local chat_id = msg.chat_id_
