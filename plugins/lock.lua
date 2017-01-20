@@ -714,7 +714,7 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'html')
 end
 local flood_max = matches[2]
 group[tostring(target)]['settings']['num_msg_max'] = flood_max
-pm1 = '<b>Group flood sensitivity has been set to : [</b><code> "..matches[2].." </code><b>]</b>' 
+pm1 = '<b>Group flood sensitivity has been set to : [</b><code> '..matches[2]..' </code><b>]</b>' 
 tg.sendMessage(msg.chat_id_, 0, 1, pm1 , 1, 'html') 
 end		
 if matches[1] == 'id' then 
