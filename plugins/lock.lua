@@ -26,7 +26,7 @@ pm = pm..'\n21- <code>Lock Voice</code> : '..(group[tostring(target)]['settings'
 pm = pm..'\n22- <code>Lock Document</code> : '..(group[tostring(target)]['settings']['mute_document'] or 'no')..''
 pm = pm..'\n23- <code>Lock Audio</code> : '..(group[tostring(target)]['settings']['mute_audio'] or 'no')..'\n-------------------------------------------'
 pm = pm..'\n24- <code>Mute All</code> : '..(group[tostring(target)]['settings']['mute_all'] or 'no')..''
-pm = pm..'\n25- <code>Flood sensitivity</code> : '..NUM_MSG_MAX1..'
+pm = pm..'\n25- <code>Flood sensitivity</code> : '..NUM_MSG_MAX..'
 --pm = pm..'\n25- <code>Flood sensitivity</code> : '..(group[tostring(target)]['settings']['num_msg_max'])''
 	
 pm = pm..'\n-------------------------------------------\n\n<b>Channel: </b>@LeaderCh'
@@ -661,7 +661,7 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
-NUM_MSG_MAX1='12'   
+   
 local group = load_data('bot/group.json')
 --local target = msg.chat_id_
 if group[tostring(target)] then
@@ -701,7 +701,7 @@ pm = pm..'\n17- <code>Lock Voice</code> : '..group[tostring(target)]['settings']
 pm = pm..'\n18- <code>Lock Document</code> : '..group[tostring(target)]['settings']['mute_document']..''
 pm = pm..'\n19- <code>Lock Audio</code> : '..group[tostring(target)]['settings']['mute_audio']..'\n-------------------------------------------'
 pm = pm..'\n20- <code>Mute All</code> : '..group[tostring(target)]['settings']['mute_all']..''
-pm = pm..'\n25- <code>Flood sensitivity</code> : '..NUM_MSG_MAX1..''
+pm = pm..'\n25- <code>Flood sensitivity</code> : '..NUM_MSG_MAX..''
 --pm = pm..'\n25- <code>Flood sensitivity</code> : '..(group[tostring(target)]['settings']['num_msg_max'])''
 	
 pm = pm..'\n-------------------------------------------\n<b>Channel: </b>@LeaderCh'
