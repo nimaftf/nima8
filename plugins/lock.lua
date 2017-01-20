@@ -659,8 +659,9 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
---if data[tostring(target)] then  
+  
 local group = load_data('bot/group.json')
+if group[tostring(target)] then
 local ww = group[tostring(target)]['settings']['num_msg_max']
 if ww then
 NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
@@ -669,7 +670,7 @@ NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
 else  
 NUM_MSG_MAX = 5
 end
---end
+end
 local function group_settings(msg, target)
 local group = load_data('bot/group.json')
 pm = '<b>SuperGroup settings</b>\n-------------------------------------------'
