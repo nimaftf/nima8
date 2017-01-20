@@ -5,7 +5,7 @@ pm = '<b>No moderator in this group</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'html')
 end
   local message = '<b>List of moderators :</b> \n'
-  for k,v in pairs(group[msg.chat_id_]['moderators'] do
+  for k,v in pairs(group[msg.chat_id_]['moderators']) do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
    i = i + 1
 end
