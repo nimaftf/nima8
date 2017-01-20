@@ -1,11 +1,11 @@
 local function modlist(msg)
      local i = 1
---[[if next(group[tostring(msg.chat_id_)]['moderators']) == nil then 
+if group[tostring(msg.chat_id_)]['moderators'] == nil then 
 pm = '<b>No moderator in this group</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'html')
-end]]
+end
   local message = '<b>List of moderators :</b> \n'
-  for k,v in pairs(group[msg.chat_id_]['moderators'][tostring(user_id)]) do
+  for k,v in pairs(group[msg.chat_id_]['moderators'] do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
    i = i + 1
 end
