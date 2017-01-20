@@ -731,6 +731,7 @@ if matches[1] == 'mute' and matches[2] == 'all' then
 mute_all_group(msg, msg.chat_id)
 end		
 if matches[1] == 'unmute' and matches[2] == 'all' then
+				
 unmute_all_group(msg, msg.chat_id,group )
 end		
         			
