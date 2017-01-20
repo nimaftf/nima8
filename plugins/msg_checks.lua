@@ -140,6 +140,7 @@ tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end]]
 local TIME_CHECK = 2
 local user = msg.sender_user_id_
+local group_flood_lock = group[tostring(msg.chat_id)]['settings']['lock_flood']      
 if group_flood_lock == 'yes' then
 local hash = 'user:'..user..':msgs'
 local msgs = tonumber(redis:get(hash) or 0)
