@@ -145,11 +145,11 @@ if group_flood_lock == 'yes' then
 local hash = 'user:'..user..':msgs'
 local msgs = tonumber(redis:get(hash) or 0)
 local NUM_MSG_MAX = 5
---if data[tostring(chat)] then
+--[[if data[tostring(chat)] then
 if group[tostring(target)]['settings']['num_msg_max'] then
 NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
 end
---end
+--end]]
 if msgs > NUM_MSG_MAX then
 --[[if is_mod(msg) then
 return
