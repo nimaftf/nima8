@@ -3,6 +3,7 @@ local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id)]
   	if matches[1] == 'rmsg' and addgroup and is_owner(msg) or is_momod(msg) then
 --       local delnumb = {string.match(text, "^[#/!](del) (%d+)$")} 
+		if is_owner(msg) or is_momod(msg) or is_sudo(msg) then
 	   if tonumber(matches[2]) > 40 then
 --			send(msg.chat_id_, msg.id_, 1, 'Error\nuse /del [1-40]', 1, 'md')
             pm = '<b>More than</b> <code>1</code> <b>and less than</b> <code>40</code>'
@@ -18,7 +19,8 @@ else
 --			tg.sendMessage(msg.chat_id_, 0, 1, matches[2]..' Last Msgs Has Been Removed.' , 1, 'html')
     end
 	end
-	
+		end
+			
 end	
 return {
   patterns = {
