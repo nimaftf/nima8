@@ -6,7 +6,7 @@ pm = pm..'\n2- <code>Lock Username</code> : '..(group[tostring(target)]['setting
 pm = pm..'\n3- <code>Lock Tag</code> : '..(group[tostring(target)]['settings']['lock_tag'] or 'no')..''
 pm = pm..'\n4- <code>Lock Edit</code> : '..group[tostring(target)]['settings']['lock_edit']..''
 pm = pm..'\n5- <code>Lock Fwd</code> : '..(group[tostring(target)]['settings']['lock_fwd'] or 'no')..''
---pm = pm..'\n5- <code>Lock Flood</code> : '..(group[tostring(target)]['settings']['lock_flood'] or 'no')..''
+pm = pm..'\n5- <code>Lock Flood</code> : '..(group[tostring(target)]['settings']['lock_flood'] or 'no')..''
 pm = pm..'\n6- <code>Lock Fosh</code> : '..(group[tostring(target)]['settings']['lock_fosh'] or 'no')..''
 pm = pm..'\n7- <code>Lock Tgservice</code> : '..(group[tostring(target)]['settings']['lock_tgservice'] or 'no')..''
 pm = pm..'\n8- <code>Lock Sticker</code> : '..(group[tostring(target)]['settings']['lock_sticker'] or 'no')..''
@@ -676,7 +676,7 @@ pm = pm..'\n2- <code>Lock Username</code> : '..group[tostring(target)]['settings
 pm = pm..'\n3- <code>Lock Tag</code> : '..group[tostring(target)]['settings']['lock_tag']..''
 pm = pm..'\n4- <code>Lock Edit</code> : '..group[tostring(target)]['settings']['lock_edit']..''
 pm = pm..'\n5- <code>Lock Fwd</code> : '..group[tostring(target)]['settings']['lock_fwd']..''
---pm = pm..'\n5- <code>Lock Flood</code> : '..group[tostring(target)]['settings']['lock_flood']..''
+pm = pm..'\n5- <code>Lock Flood</code> : '..group[tostring(target)]['settings']['lock_flood']..''
 pm = pm..'\n6- <code>Lock Fosh</code> : '..group[tostring(target)]['settings']['lock_fosh']..''
 pm = pm..'\n7- <code>Lock Tgservice</code> : '..group[tostring(target)]['settings']['lock_tgservice']..''
 pm = pm..'\n8- <code>Lock Sticker</code> : '..group[tostring(target)]['settings']['lock_sticker']..''
@@ -752,8 +752,8 @@ elseif matches[2] == 'arabic' then
 lock_group_persian(msg, msg.chat_id)
 elseif matches[2] == 'bot' then
 lock_group_bot(msg, msg.chat_id)
---[[elseif matches[2] == 'flood' then
-lock_group_flood(msg, msg.chat_id)]]
+elseif matches[2] == 'flood' then
+lock_group_flood(msg, msg.chat_id)
 elseif matches[2] == 'fosh' then
 lock_group_fosh(msg, msg.chat_id)
 elseif matches[2] == 'inline' then
@@ -805,8 +805,8 @@ elseif matches[2] == 'arabic' then
 unlock_group_persian(msg, msg.chat_id)
 elseif matches[2] == 'bot' then
 unlock_group_bot(msg, msg.chat_id)
---[[elseif matches[2] == 'flood' then
-unlock_group_flood(msg, msg.chat_id)]]
+elseif matches[2] == 'flood' then
+unlock_group_flood(msg, msg.chat_id)
 elseif matches[2] == 'fosh' then
 unlock_group_fosh(msg, msg.chat_id)
 elseif matches[2] == 'inline' then
@@ -853,6 +853,7 @@ return {
 	"^[/#!](unmute) (.*)$",
 		"^[/#!](id)$",
 		"^[/#!](settings)$",
+		"^[/#!](setflood) (%d*)$",
 		--"^[/#!](setlink) (.*)$",
 "^!!!edit:[/#!](lock) (.*)$",
 "^!!!edit:[/#!](unlock) (.*)$",
