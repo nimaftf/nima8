@@ -138,6 +138,36 @@ end
 if group_reply_lock == 'yes' and msg.reply_to_message_id_~=0 then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end]]
+local TIME_CHECK = 2
+local user = msg.sender_user_id_
+if group_flood_lock == 'yes' then
+local hash = 'user:'..user..':msgs'
+local msgs = tonumber(redis:get(hash) or 0)
+local NUM_MSG_MAX = 5
+--if data[tostring(chat)] then
+if group[tostring(target)]['settings']['num_msg_max'] then
+NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
+end
+--end
+if msgs > NUM_MSG_MAX then
+--[[if is_mod(msg) then
+return
+end
+if msg.adduser then
+return
+end]]
+if redis:get('sender:'..user..':flood') then
+return
+else
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_})
+--kick_user(user, chat)
+pm2 = '*User* [ `'..user..'` ] *has been deleted messages because of flooding*'
+tg.sendMessage(msg.chat_id_, 0, 1, pm2 , 1, 'md') 
+redis:setex('sender:'..user..':flood', 30, true)
+end
+end
+redis:setex(hash, TIME_CHECK, msgs+1)
+end      
 end
 end
 end
