@@ -662,7 +662,7 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
    
-local group = load_data('bot/group.json')
+--[[local group = load_data('bot/group.json')
 --local target = msg.chat_id_
 if group[tostring(target)] then
 if group[tostring(target)]['settings']['num_msg_max'] then
@@ -672,7 +672,7 @@ NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
 else  
 NUM_MSG_MAX = 5
 end
-end
+end]]
 local function group_settings(msg, target)
 local group = load_data('bot/group.json')
 pm = '<b>SuperGroup settings</b>\n-------------------------------------------'
@@ -711,7 +711,7 @@ end
 local function run(msg, matches)
 local addgroup = group[tostring(msg.chat_id)]
 if addgroup and is_momod(msg) or is_owner(msg) then
-if matches[1] == 'setflood' then
+--[[if matches[1] == 'setflood' then
 if tonumber(matches[2]) < 1 or tonumber(matches[2]) > 50 then
 pm = '*Wrong number, range is[*_1-50_*]*'
 tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'md') 
@@ -720,7 +720,7 @@ local flood_max = matches[2]
 group[tostring(target)]['settings']['num_msg_max'] = flood_max
 pm1 = '*Group flood sensitivity has been set to : [*_ '..matches[2]..' _*]*' 
 tg.sendMessage(msg.chat_id_, 0, 1, pm1 , 1, 'md') 
-end		
+end]]		
 if matches[1] == 'id' then 
 pm = '*SuperGroup ID:* [_'..msg.chat_id_..'_]\n*User ID:* [_'..msg.sender_user_id_..'_]\n\n*Channel:* @LeaderCH'			
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'md') 
@@ -854,14 +854,14 @@ return {
 	"^[/#!](unmute) (.*)$",
 	"^[/#!](id)$",
 	"^[/#!](settings)$",
-	"^[/#!](setflood) (%d*)$",
+	--"^[/#!](setflood) (%d*)$",
 "^!!!edit:[/#!](lock) (.*)$",
 "^!!!edit:[/#!](unlock) (.*)$",
 "^!!!edit:[/#!](mute) (.*)$",
 "^!!!edit:[/#!](unmute) (.*)$",
 "^!!!edit:[/#!](settings)$",
 "^!!!edit:[/#!](id)$",
-"^!!!edit:[/#!](setflood) (%d*)$",
+--"^!!!edit:[/#!](setflood) (%d*)$",
   },
   run = run
 }
