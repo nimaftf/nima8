@@ -12,11 +12,9 @@ local is_link = msg.text:match("[Hh][Tt][Tt][Pp][Ss]://[Tt][Ee][Ll][Ee][Gg][Rr][
 redis:set('link'..msg.chat_id_,matches[2])
 if matches[2] == is_link then
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
-else
+end                        
+if matches[2] == not is_link then
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Not Link</b>', 1, 'html')
-end
-      
---tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
 end	
 end    
 end
