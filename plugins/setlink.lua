@@ -11,9 +11,9 @@ if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then
 redis:set('link'..msg.chat_id_,'https://telegram.me/joinchat/'..matches[2] or 'https://t.me/joinchat/'..matches[2])
 --if matches[2] then
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
---else                        
+else                        
 --if matches[2] == not is_link then
---tg.sendMessage(msg.chat_id_, 0, 1, '<b>Not Link</b>', 1, 'html')
+tg.sendMessage(msg.chat_id_, 0, 1, '<b>Not Link</b>', 1, 'html')
 --end	
 --end      
 end    
