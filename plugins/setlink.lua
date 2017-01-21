@@ -6,7 +6,7 @@ redis:set('link'..msg.chat_id_,nil)
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Link Deleted</b>' , 1, 'html')
 end      
 if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then
-local is_link = msg.text:match("[Hh][Tt][Tt][Pp][Ss]://[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text.match("[Hh][Tt][Tt][Pp][Ss]://[Tt].[Mm][Ee]/")   
+local is_link = msg.text:match("^([https?://w]*.?telegram.me/joinchat/%S+)$") or msg.text.match("^([https?://w]*.?t.me/joinchat/%S+)$")   
 --matches[2] = is_link
 redis:set('link'..msg.chat_id_,matches[2])
 if matches[2] == is_link then
