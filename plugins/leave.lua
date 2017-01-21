@@ -3,7 +3,7 @@ local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id)]
 	if matches[1] == 'leave' and is_sudo(msg) and addgroup or not addgroup then
 	      --tg.changeChatMemberStatus(chat, robot, 'Left')
-		  changeChatMemberStatus(msg.chat_id_, robot, 'Left') 
+		  changeChatMemberStatus(msg.chat_id_, 288058778, 'Left') 
     end
 end	
 return {
