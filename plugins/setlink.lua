@@ -20,7 +20,7 @@ end
 end
 return {
   patterns = {
---"^[/#!](setlink) (.*)$",
+"^[/#!](setlink) (.*)$",
 "^[#!/](setlink) https://telegram.me/joinchat/(.*)$",
 "^[#!/](setlink) https://t.me/joinchat/(.*)$",    
 "^[/#!](clean) (.*)$",            
