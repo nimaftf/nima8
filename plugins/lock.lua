@@ -702,7 +702,7 @@ pm = pm..'\n18- <code>Lock Document</code> : '..group[tostring(target)]['setting
 pm = pm..'\n19- <code>Lock Audio</code> : '..group[tostring(target)]['settings']['mute_audio']..'\n-------------------------------------------'
 pm = pm..'\n20- <code>Mute All</code> : '..group[tostring(target)]['settings']['mute_all']..''
 --pm = pm..'\n25- <code>Flood sensitivity</code> : '..NUM_MSG_MAX..''
-pm = pm..'\n25- <code>Flood sensitivity</code> : '..(tonumber(group[tostring(target)]['settings']['num_msg_max']))''
+pm = pm..'\n25- <code>Flood sensitivity</code> : '..(group[tostring(target)]['settings']['num_msg_max'])''
 	
 pm = pm..'\n-------------------------------------------\n<b>Channel: </b>@LeaderCh'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
