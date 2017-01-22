@@ -147,12 +147,12 @@ tg.deleteMessages(msg.chat_id_, {[0] = msg.id_})
 --tg.changeChatMemberStatus(chat_id, user_id, 'Kicked')
 pm2 = '*User* [ `'..user..'` ] *has been deleted messages because of flooding*'
 tg.sendMessage(msg.chat_id_, 0, 1, pm2 , 1, 'md') 
---redis:setex('sender:'..user..':lock_flood', 30, true)
-redis:set('sender:'..user..':lock_flood', 30, true)
+redis:setex('sender:'..user..':lock_flood', 30, true)
+--redis:set('sender:'..user..':lock_flood', 30, true)
 end
 end
---redis:setex(hash, TIME_CHECK, msgs+1)
-redis:set(hash, TIME_CHECK, msgs+1)
+redis:setex(hash, TIME_CHECK, msgs+1)
+--redis:set(hash, TIME_CHECK, msgs+1)
 end      
 end
 end
