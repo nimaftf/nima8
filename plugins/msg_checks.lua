@@ -135,7 +135,7 @@ local msgs = tonumber(redis:get(hash) or 0)
 if group[tostring(target)]['settings']['num_msg_max'] then
 NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
 else
-return NUM_MSG_MAX = 5
+ NUM_MSG_MAX = 5
 end
 --end
 if msgs > NUM_MSG_MAX then
