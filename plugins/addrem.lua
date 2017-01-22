@@ -32,7 +32,7 @@ mute_video = "no",
 mute_voice = "no",
 mute_document = "no",
 mute_gif = "no",
-mute_audio = "no"
+mute_audio = "no",
 num_msg_max = 5				
                   }
       }
