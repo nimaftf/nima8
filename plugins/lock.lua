@@ -701,7 +701,7 @@ pm = pm..'\n17- <code>Lock Voice</code> : '..group[tostring(target)]['settings']
 pm = pm..'\n18- <code>Lock Document</code> : '..group[tostring(target)]['settings']['mute_document']..''
 pm = pm..'\n19- <code>Lock Audio</code> : '..group[tostring(target)]['settings']['mute_audio']..'\n-------------------------------------------'
 pm = pm..'\n20- <code>Mute All</code> : '..group[tostring(target)]['settings']['mute_all']..''
-pm = pm..'\n25- <code>Flood sensitivity</code> : '..group[tostring(target)]['settings']['num_msg_max']..''
+pm = pm..'\n25- <code>Flood sensitivity</code> : '..NUM_MSG_MAX..''
 --pm = pm..'\n25- <code>Flood sensitivity</code> : '..(group[tostring(target)]['settings']['num_msg_max'])''
 	
 pm = pm..'\n-------------------------------------------\n<b>Channel: </b>@LeaderCh'
@@ -718,7 +718,7 @@ pm = '*Wrong number, range is[*1-50*]*'
 tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'md') 
 end
 local flood_max = matches[2]
-group[tostring(target)]['settings']['num_msg_max'] = flood_max
+group[tostring(msg.to.id)]['settings']['num_msg_max'] = flood_max
 save_data(_config.group.data, group)
 pm1 = '*Group flood sensitivity has been set to : [* '..matches[2]..' *]*' 
 tg.sendMessage(msg.chat_id_, 0, 1, pm1 , 1, 'md') 
