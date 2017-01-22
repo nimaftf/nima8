@@ -130,24 +130,24 @@ local group_flood_lock = group[tostring(msg.chat_id)]['settings']['lock_flood']
 if group_flood_lock == 'yes' then
 local hash = 'user:'..user..':msgs'
 local msgs = tonumber(redis:get(hash) or 0)
---local NUM_MSG_MAX = 5
+local NUM_MSG_MAX = 5
 --if data[tostring(chat)] then
 if group[tostring(target)]['settings']['num_msg_max'] then
 NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
-else
- NUM_MSG_MAX = 5
+--else
+-- NUM_MSG_MAX = 5
 end
 --end
 if msgs > NUM_MSG_MAX then
-if redis:get('sender:'..user..':lock_flood') then
-return
-else
+if not redis:get('sender:'..user..':lock_flood') then
+--return
+--else
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_})
 --kick_user(user, chat)
 --tg.changeChatMemberStatus(chat_id, user_id, 'Kicked')
 pm2 = '*User* [ `'..user..'` ] *has been deleted messages because of flooding*'
 tg.sendMessage(msg.chat_id_, 0, 1, pm2 , 1, 'md') 
-redis:setex('sender:'..user..':lock_flood', 30, true)
+redis:setex('sender:'..user..':lock_flood', 60, true)
 --redis:set('sender:'..user..':lock_flood', 30, true)
 end
 end
