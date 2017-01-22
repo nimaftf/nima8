@@ -717,12 +717,14 @@ if tonumber(matches[2]) < 1 or tonumber(matches[2]) > 50 then
 pm = '*Wrong number, range is[*1-50*]*'
 tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'md') 
 end
+if not tonumber(matches[2]) < 1 or not tonumber(matches[2]) > 50 then			
 local flood_max = matches[2]
 group[tostring(msg.chat_id_)]['settings']['num_msg_max'] = flood_max
 save_data(_config.group.data, group)
 pm1 = '*Group flood sensitivity has been set to : [* '..matches[2]..' *]*' 
 tg.sendMessage(msg.chat_id_, 0, 1, pm1 , 1, 'md') 
 end	
+end			
 	
 if matches[1] == 'id' then 
 pm = '*SuperGroup ID:* [_'..msg.chat_id_..'_]\n*User ID:* [_'..msg.sender_user_id_..'_]\n\n*Channel:* @LeaderCH'			
