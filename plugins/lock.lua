@@ -716,8 +716,9 @@ if matches[1] == 'setflood' then
 if tonumber(matches[2]) < 1 or tonumber(matches[2]) > 50 then
 pm = '*Wrong number, range is[*1-50*]*'
 tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'md') 
-end
-if not tonumber(matches[2]) < 1 or not tonumber(matches[2]) > 50 then			
+--end
+else				
+--if not tonumber(matches[2]) < 1 or not tonumber(matches[2]) > 50 then			
 local flood_max = matches[2]
 group[tostring(msg.chat_id_)]['settings']['num_msg_max'] = flood_max
 save_data(_config.group.data, group)
