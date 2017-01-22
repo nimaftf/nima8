@@ -664,9 +664,8 @@ end
    
 local group = load_data('bot/group.json')
 --local target = msg.chat_id_
-if group[tostring(target)] then
-local setflood = group[tostring(target)]['settings']['num_msg_max']	
-if setflood then
+if group[tostring(target)] then	
+if group[tostring(target)]['settings']['num_msg_max'] then
 NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
  print('custom'..NUM_MSG_MAX) 
 
