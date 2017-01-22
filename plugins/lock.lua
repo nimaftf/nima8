@@ -718,7 +718,7 @@ pm = '*Wrong number, range is[*1-50*]*'
 tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'md') 
 end
 local flood_max = matches[2]
-group[tostring(msg.to.id)]['settings']['num_msg_max'] = flood_max
+group[tostring(target)]['settings']['num_msg_max'] = flood_max
 save_data(_config.group.data, group)
 pm1 = '*Group flood sensitivity has been set to : [* '..matches[2]..' *]*' 
 tg.sendMessage(msg.chat_id_, 0, 1, pm1 , 1, 'md') 
