@@ -33,7 +33,7 @@ mute_voice = "no",
 mute_document = "no",
 mute_gif = "no",
 mute_audio = "no",
-num_msg_max = 5				
+NUM_MSG_MAX = 5				
                   }
       }
       save_data(_config.group.data, group)
