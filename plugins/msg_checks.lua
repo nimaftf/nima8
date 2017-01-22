@@ -132,11 +132,12 @@ local hash = 'user:'..user..':msgs'
 local msgs = tonumber(redis:get(hash) or 0)
 local NUM_MSG_MAX = 5
 --if data[tostring(chat)] then
-if group[tostring(target)]['settings']['num_msg_max'] then
+--[[if group[tostring(target)]['settings']['num_msg_max'] then
 NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max'])
 --else
 -- NUM_MSG_MAX = 5
-end
+end]]
+NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max']) or 5        
 --end
 if msgs > NUM_MSG_MAX then
 if not redis:get('sender:'..user..':lock_flood') then
