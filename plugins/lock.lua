@@ -856,14 +856,14 @@ return {
 	"^[/#!](unmute) (.*)$",
 	"^[/#!](id)$",
 	"^[/#!](settings)$",
-	"^[/#!](setflood) (%d*)$",
+	"^[/#!](setflood) (%d+)$",
 --"^!!!edit:[/#!](lock) (.*)$",
 --"^!!!edit:[/#!](unlock) (.*)$",
 --"^!!!edit:[/#!](mute) (.*)$",
 --"^!!!edit:[/#!](unmute) (.*)$",
 --"^!!!edit:[/#!](settings)$",
 --"^!!!edit:[/#!](id)$",
---"^!!!edit:[/#!](setflood) (%d*)$",
+--"^!!!edit:[/#!](setflood) (%d+)$",
   },
   run = run
 }
