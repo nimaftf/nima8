@@ -1,10 +1,10 @@
 local function run(msg, matches)
 local group = load_data('bot/group.json')	
 local addgroup = group[tostring(msg.chat_id)]
-if matches[1] == 'clean' and matches[2] == 'link' then
+--[[if matches[1] == 'clean' and matches[2] == 'link' then
 redis:get('link'..msg.chat_id_) = nil
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Link Deleted</b>' , 1, 'html')
-end      
+end      ]]
 if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then
 redis:set('link'..msg.chat_id_,'https://'..matches[2])
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
@@ -19,7 +19,7 @@ return {
 "^[/#!](setlink) https://(.*)$",
 --"^[#!/](setlink) https://telegram.me/joinchat/(.*)$",
 --"^[#!/](setlink) https://t.me/joinchat/(.*)$",    
-"^[/#!](clean) (.*)$",            
+--"^[/#!](clean) (.*)$",            
 --"^([https?://w]*.?t.me/joinchat/%S+)$",
 --"^([https?://w]*.?telegram.me/joinchat/%S+)$",
  },
