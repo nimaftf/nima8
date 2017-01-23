@@ -34,7 +34,7 @@ local function pre_process(msg)
 	end
 	if tonumber(timetoexpire) == 4 then
 		if redis:hget('expires4',msg.chat_id_) then end
-		tdcli.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 4 روز دیگر باقی مانده است. لطفا برای تمدید اقدادم کنید` ', 1, 'md')
+		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 4 روز دیگر باقی مانده است. لطفا برای تمدید اقدادم کنید` ', 1, 'md')
 		redis:hset('expires4',msg.chat_id_,'5')
 	end
 	if tonumber(timetoexpire) == 5 then
@@ -52,7 +52,8 @@ function run(msg, matches)
 		local buytime = tonumber(os.time())
 		local timeexpire = tonumber(buytime) + (tonumber(matches[2]) * 86400)
 		redis:hset('expiretime',msg.chat_id_,timeexpire)
-		return "*Expire Time Set* [`"..matches[2].."`] *Days* "
+		text = 'Expire Time Set* [`'..matches[2]..'`] *Days* '
+		tg.sendMessage(msg.chat_id_, 0, 1, text, 1, 'html')
 	end
 	if matches[1]:lower() == 'expire' then
 		local expiretime = redis:hget ('expiretime', msg.chat_id_)
