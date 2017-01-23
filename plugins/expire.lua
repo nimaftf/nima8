@@ -14,32 +14,32 @@ local function pre_process(msg)
 	end
 	if tonumber(timetoexpire) == 0 then
 		if redis:hget('expires0',msg.chat_id_) then end
-		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 0 روز دیگر باقی مانده است. لطفا برای تمدید سریعاً اقدادم کنید` .', 1, 'md')
+		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 0 روز دیگر باقی مانده است. لطفا برای تمدید سریعاً اقدام کنید` .', 1, 'md')
 		redis:hset('expires0',msg.chat_id_,'5')
 	end
 	if tonumber(timetoexpire) == 1 then
 		if redis:hget('expires1',msg.chat_id_) then end
-		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 1 روز دیگر باقی مانده است. لطفا برای تمدید اقدادم کنید` .', 1, 'md')
+		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 1 روز دیگر باقی مانده است. لطفا برای تمدید اقدام کنید` .', 1, 'md')
 		redis:hset('expires1',msg.chat_id_,'5')
 	end
 	if tonumber(timetoexpire) == 2 then
 		if redis:hget('expires2',msg.chat_id_) then end
-		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 2 روز دیگر باقی مانده است. لطفا برای تمدید اقدادم کنید` .', 1, 'md')
+		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 2 روز دیگر باقی مانده است. لطفا برای تمدید اقدام کنید` .', 1, 'md')
 		redis:hset('expires2',msg.chat_id_,'5')
 	end
 	if tonumber(timetoexpire) == 3 then
 		if redis:hget('expires3',msg.chat_id_) then end
-		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 3 روز دیگر باقی مانده است. لطفا برای تمدید اقدادم کنید` ', 1, 'md')
+		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 3 روز دیگر باقی مانده است. لطفا برای تمدید اقدام کنید` ', 1, 'md')
 		redis:hset('expires3',msg.chat_id_,'5')
 	end
 	if tonumber(timetoexpire) == 4 then
 		if redis:hget('expires4',msg.chat_id_) then end
-		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 4 روز دیگر باقی مانده است. لطفا برای تمدید اقدادم کنید` ', 1, 'md')
+		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 4 روز دیگر باقی مانده است. لطفا برای تمدید اقدام کنید` ', 1, 'md')
 		redis:hset('expires4',msg.chat_id_,'5')
 	end
 	if tonumber(timetoexpire) == 5 then
 		if redis:hget('expires5',msg.chat_id_) then end
-		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 5 روز دیگر باقی مانده است. لطفا برای تمدید اقدادم کنید` ', 1, 'md')
+		tg.sendMessage(msg.chat_id_, 0, 1, ' `به پایان تاریخ انقضای گروه فقط 5 روز دیگر باقی مانده است. لطفا برای تمدید اقدام کنید` ', 1, 'md')
 		redis:hset('expires5',msg.chat_id_,'5')
 	end
 end
