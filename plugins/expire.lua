@@ -52,7 +52,7 @@ function run(msg, matches)
 		local buytime = tonumber(os.time())
 		local timeexpire = tonumber(buytime) + (tonumber(matches[2]) * 86400)
 		redis:hset('expiretime',msg.chat_id_,timeexpire)
-		return "*Expire Time Set* `"..matches[2].. "` *Days* "
+		return "*Expire Time Set* [`"..matches[2].."`] *Days* "
 	end
 	if matches[1]:lower() == 'expire' then
 		local expiretime = redis:hget ('expiretime', msg.chat_id_)
