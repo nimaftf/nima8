@@ -52,14 +52,15 @@ function run(msg, matches)
 		local buytime = tonumber(os.time())
 		local timeexpire = tonumber(buytime) + (tonumber(matches[2]) * 86400)
 		redis:hset('expiretime',msg.chat_id_,timeexpire)
-		text = 'Expire Time Set* [`'..matches[2]..'`] *Days* '
-		tg.sendMessage(msg.chat_id_, 0, 1, text, 1, 'html')
+		text = '*Expire Time Set* [`'..matches[2]..'`] *Days* '
+		tg.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
 	end
 	if matches[1]:lower() == 'expire' then
 		local expiretime = redis:hget ('expiretime', msg.chat_id_)
 		if not expiretime then return '*Unlimited*' else
 			local now = tonumber(os.time())
-			return (math.floor((tonumber(expiretime) - tonumber(now)) / 86400) + 1) .. " *Days*"
+			text1 = (math.floor((tonumber(expiretime) - tonumber(now)) / 86400) + 1) 
+			tg.sendMessage(msg.chat_id_, 0, 1, '*Expire Time* [`'..text1..'`]*Days*', 1, 'md')
 		end
 	end
 
