@@ -487,17 +487,17 @@ function tdcli_update_callback(data)
           msg.text = msg.text .. msg.content_.caption_
         end
         
-      elseif  msg.content_.contact == "MessageContact" then
+      elseif  msg.content_.contact_ == "MessageContact" then
         msg.text = "!!!contact:"
 	if msg.content_.caption_ then
           msg.text = msg.text .. msg.content_.caption_
         end			
-      elseif  msg.content_.location == "MessageLocation" then
+      elseif  msg.content_.location_ == "MessageLocation" then
         msg.text = "!!!location:"  
 	if msg.content_.caption_ then
           msg.text = msg.text .. msg.content_.caption_
         end			
-      elseif  msg.content_.game == "MessageGame" then
+      elseif  msg.content_.game_ == "MessageGame" then
         msg.text = "!!!game:"
 	if msg.content_.caption_ then
           msg.text = msg.text .. msg.content_.caption_
