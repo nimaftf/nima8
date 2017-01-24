@@ -1,8 +1,8 @@
 local function addword(msg, name)
     local hash = 'chat:'..msg.chat_id_..':badword'
     redis:hset(hash, name, 'newword')
-    pm = '<b>New word has been added to list:</b> \n>'..name
-	tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+    
+	tg.sendMessage(msg.chat_id_, 0, 1, '<b>New word has been added to list:</b> \n>'..name, 1, 'html')
 end
 
 local function get_badword_hash(msg)
