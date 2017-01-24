@@ -674,7 +674,7 @@ NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max']) or 5
 end
 end
 
-local expiretime = redis:hget('expiretime', msg.chat_id_)
+local expiretime = redis:get('expiretime', msg.chat_id_)
     local expire = ''
   if not expiretime then
   expire = expire..'Unlimited'
