@@ -41,7 +41,7 @@ local addgroup = group[tostring(msg.chat_id)]
 		local names = redis:hkeys(hash)
 		local text = ''
 		for i=1, #names do
-			if string.match(arg, names[i]) and not is_mod(msg) then
+			if string.match(arg, names[i]) and not is_momod(msg) or not is_owner()msg then
 				if addgroup then
 				tg.deleteMessages(msg.chat_id_, {[0] = msg.id_}, dl_cb, nil)
 			end
