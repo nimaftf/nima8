@@ -4,6 +4,7 @@ do local _ = {
     "bc",
     "lock",
     "msg_checks",
+      "plugins",
     "pin"
   },
   group  = {
