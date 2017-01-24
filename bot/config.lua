@@ -4,12 +4,9 @@ do local _ = {
     "bc",
     "lock",
     "msg_checks",
---    "pin",
     "rank",
-  --    "banhammer",
---      "settings",
       "plugins",
-  --    "tools",
+      "filter",
       "admin"
   },
   group  = {
