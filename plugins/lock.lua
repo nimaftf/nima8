@@ -685,9 +685,9 @@ pm = pm..'\n5- <code>Lock Flood</code> : '..group[tostring(target)]['settings'][
 pm = pm..'\n6- <code>Lock Fosh</code> : '..group[tostring(target)]['settings']['lock_fosh']..''
 pm = pm..'\n7- <code>Lock Tgservice</code> : '..group[tostring(target)]['settings']['lock_tgservice']..''
 pm = pm..'\n8- <code>Lock Sticker</code> : '..group[tostring(target)]['settings']['lock_sticker']..''
---pm = pm..'\n- <code>Lock Contact</code> : '..group[tostring(target)]['settings']['lock_contact']..''
---pm = pm..'\n- <code>Lock Location</code> : '..group[tostring(target)]['settings']['lock_location']..''
---pm = pm..'\n- <code>Lock Game</code> : '..group[tostring(target)]['settings']['lock_game']..''
+pm = pm..'\n- <code>Lock Contact</code> : '..group[tostring(target)]['settings']['lock_contact']..''
+pm = pm..'\n- <code>Lock Location</code> : '..group[tostring(target)]['settings']['lock_location']..''
+pm = pm..'\n- <code>Lock Game</code> : '..group[tostring(target)]['settings']['lock_game']..''
 pm = pm..'\n9- <code>Lock Bot</code> : '..group[tostring(target)]['settings']['lock_bot']..''
 pm = pm..'\n10- <code>Lock Inline</code> : '..group[tostring(target)]['settings']['lock_inline']..''
 pm = pm..'\n11- <code>Lock Spam</code> : '..group[tostring(target)]['settings']['lock_spam']..''
@@ -702,7 +702,7 @@ pm = pm..'\n18- <code>Lock Document</code> : '..group[tostring(target)]['setting
 pm = pm..'\n19- <code>Lock Audio</code> : '..group[tostring(target)]['settings']['mute_audio']..'\n-------------------------------------------'
 pm = pm..'\n20- <code>Mute All</code> : '..group[tostring(target)]['settings']['mute_all']..''
 --pm = pm..'\n25- <code>Flood sensitivity</code> : '..NUM_MSG_MAX..''
-pm = pm..'\n25- <code>Flood sensitivity</code> : '..(group[tostring(target)]['settings']['num_msg_max'])''
+--pm = pm..'\n25- <code>Flood sensitivity</code> : '..(group[tostring(target)]['settings']['num_msg_max'])''
 	
 pm = pm..'\n-------------------------------------------\n<b>Channel: </b>@LeaderCh'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
