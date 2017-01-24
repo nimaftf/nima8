@@ -6,7 +6,7 @@ do local _ = {
     "msg_checks",
     "rank",
       "plugins",
-      "filter",
+     -- "filter",
       "admin"
   },
   group  = {
