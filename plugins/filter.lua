@@ -41,7 +41,7 @@ local addgroup = group[tostring(msg.chat_id)]
 		local names = redis:hkeys(hash)
 		local text = ''
 		for i=1, #names do
-			if string.match(arg, names[i]) and not is_momod(msg) or not is_owner()msg then
+			if string.match(arg, names[i]) and not is_momod(msg) or not is_owner(msg) then
 				if addgroup then
 				tg.deleteMessages(msg.chat_id_, {[0] = msg.id_}, dl_cb, nil)
 			end
@@ -66,7 +66,7 @@ local addgroup = group[tostring(msg.chat_id)]
 		local names = redis:hkeys(hash)
 		local text = ''
 		for i=1, #names do
-			if string.match(msg.text, names[i]) and not is_mod(msg) then
+			if string.match(msg.text, names[i]) and not is_momod(msg) or not is_owner(msg) then
 				if addgroup then
 					tg.deleteMessages(msg.chat_id_, {[0] = msg.id_}, dl_cb, nil)
 				end
@@ -79,7 +79,7 @@ end
 local function run(msg, matches
 local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id)]
-	if addgroup and is_momod(msg) or is_owner()msg then
+	if addgroup and is_momod(msg) or is_owner(msg) then
 		if matches[2]:lower() == 'filter' then
 			local name = string.sub(matches[3], 1, 50)
 			local text = addword(msg, name)
