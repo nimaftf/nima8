@@ -30,7 +30,7 @@ end
 
 return {
     patterns = {
-        '^[!#/]([Rr]msg) (%d*)$'
+        '^[!#/](rmsg) (%d*)$'
     },
     run = run
 }
