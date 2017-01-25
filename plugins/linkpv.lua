@@ -1,4 +1,3 @@
-do
 
 function run(msg, matches)
     if matches[1] == 'linkpv' and is_sudo(msg) or is_owner(msg) then   
@@ -21,4 +20,4 @@ return {
   run = run
 }
 
-end
+
