@@ -20,11 +20,9 @@ local addgroup = group[tostring(msg.chat_id)]
     offset_ = 0,
     limit_ = tonumber(matches[2])
   }, rmmsg, nil)
-            --[[ pm ='<code>'..matches[2]..'</code> <b>Last Msgs Has Been Removed</b>'
-             tg.sendMessage(msg.chat_id_, msg.id_, 1, pm, 1, 'html')]]
-         end
-        pm ='<code>'..matches[2]..'</code> <b>Last Msgs Has Been Removed</b>'
+             pm ='<code>'..matches[2]..'</code> <b>Last Messages Has Been Removed</b>'
              tg.sendMessage(msg.chat_id_, msg.id_, 1, pm, 1, 'html')
+         end 
      --end
 --end
 end
