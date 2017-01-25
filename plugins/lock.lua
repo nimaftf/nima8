@@ -674,15 +674,14 @@ NUM_MSG_MAX = tonumber(group[tostring(target)]['settings']['num_msg_max']) or 5
 end
 end
 
-local expiretime = redis:hget ('expiretime', msg.chat_id_)
+--[[local expiretime = redis:hget ('expiretime', msg.chat_id_)
     local expire = ''
   if not expiretime then
   expire = expire..'Unlimited'
   else
    local now = tonumber(os.time())
    expire =  expire..math.floor((tonumber(expiretime) - tonumber(now)) / 86400) + 1
- end
-
+ end]]
 local function group_settings(msg, target)
 local group = load_data('bot/group.json')
 pm = '<b>SuperGroup settings</b>\n-------------------------------------------'
@@ -711,7 +710,7 @@ pm = pm..'\n17- <code>Lock Voice</code> : '..group[tostring(target)]['settings']
 pm = pm..'\n18- <code>Lock Document</code> : '..group[tostring(target)]['settings']['mute_document']..''
 pm = pm..'\n19- <code>Lock Audio</code> : '..group[tostring(target)]['settings']['mute_audio']..'\n-------------------------------------------'
 pm = pm..'\n20- <code>Mute All</code> : '..group[tostring(target)]['settings']['mute_all']..''
-pm = pm..'\n25- <code>Expire Time:</code> : '..expire..' Day'	
+--pm = pm..'\n25- <code>Expire Time:</code> : '..expire..' Day'	
 --pm = pm..'\n25- <code>Flood sensitivity</code> : '..NUM_MSG_MAX..''
 --pm = pm..'\n25- <code>Flood sensitivity</code> : '..(group[tostring(target)]['settings']['num_msg_max'])''
 	
