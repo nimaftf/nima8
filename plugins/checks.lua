@@ -23,10 +23,3 @@ return {
   run = run
 }
 
-
-function kick_user(user_id, chat_id)
-if not tonumber(user_id) then
-return false
-end
-  tdcli.changeChatMemberStatus(chat_id, user_id, 'Kicked')
-end
