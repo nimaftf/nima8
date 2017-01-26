@@ -1,6 +1,8 @@
 local function rmmsg (arg,data)
 for k,v in pairs(data.messages_) do
 tg.deleteMessages(v.chat_id_,{[0] = v.id_})
+pm ='<code>'..matches[2]..'</code> <b>Last Messages Has Been Removed</b>'
+tg.sendMessage(msg.chat_id_, msg.id_, 1, pm, 1, 'html')        
 end
 end
 local function run(msg, matches)
@@ -20,8 +22,8 @@ local addgroup = group[tostring(msg.chat_id)]
     offset_ = 0,
     limit_ = tonumber(matches[2])
   }, rmmsg, nil)
-             pm ='<code>'..matches[2]..'</code> <b>Last Messages Has Been Removed</b>'
-             tg.sendMessage(msg.chat_id_, msg.id_, 1, pm, 1, 'html')
+             --pm ='<code>'..matches[2]..'</code> <b>Last Messages Has Been Removed</b>'
+             --tg.sendMessage(msg.chat_id_, msg.id_, 1, pm, 1, 'html')
          end 
      --end
 --end
