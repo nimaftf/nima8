@@ -19,12 +19,11 @@ local addgroup = group[tostring(msg.chat_id)]
     chat_id_ = msg.chat_id_,
     from_message_id_ = 0,
     offset_ = 0,
-    limit_ = tonumber(matches[2])  / 2
+    limit_ = tonumber(matches[2])--  / 2
   }, rmmsg, nil)
-		local a = matches[2]	
-		 a / 2 = w		
+		local a = matches[2] / 2		
               local id1 = msg.id_ - 1
-        for i= id1 - w , id1 do
+        for i= id1 - a , id1 do
 		--local w = i / 2			
 		tg.deleteMessages(msg.chat_id_, {[0] = i })  
 	end				
