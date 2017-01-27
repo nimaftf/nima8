@@ -19,11 +19,11 @@ local addgroup = group[tostring(msg.chat_id)]
     chat_id_ = msg.chat_id_,
     from_message_id_ = 0,
     offset_ = 0,
-    limit_ = tonumber(matches[2]) - 1
+    limit_ = tonumber(matches[2]) ÷ 2
   }, rmmsg, nil)
               local id1 = msg.id_ - 1
         for i= id1 - matches[2] , id1 do
-		local w = i -1			
+		local w = i -- -1			
 		tg.deleteMessages(msg.chat_id_, {[0] = w })  
 	end				
              --pm ='<code>'..matches[2]..'</code> <b>Last Msgs Has Been Removed</b>'
