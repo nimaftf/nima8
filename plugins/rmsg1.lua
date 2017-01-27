@@ -18,7 +18,7 @@ local addgroup = group[tostring(msg.chat_id)]
     chat_id_ = msg.chat_id_,
     from_message_id_ = 0,
     offset_ = 0,
-    limit_ = 100 --tonumber(matches[2])
+    limit_ = 100, --tonumber(matches[2])
   }, rmmsg, nil)
              --pm ='<code>'..matches[2]..'</code> <b>Last Msgs Has Been Removed</b>'
              pm ='<b> Message Has Been Removed</b>'   
