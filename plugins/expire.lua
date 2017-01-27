@@ -60,7 +60,7 @@ function run(msg, matches)
 		if not expiretime then return '*Unlimited*' else
 			local now = tonumber(os.time())
 			text1 = (math.floor((tonumber(expiretime) - tonumber(now)) / 86400) + 1) 
-			tg.sendMessage(msg.chat_id_, 0, 1, '*Expire Time* [`'..text1..'`]*Days*', 1, 'md')
+			tg.sendMessage(msg.chat_id_, 0, 1, '*Expire Time* [`'..text1..'`] *Days*', 1, 'md')
 		end
 	end
 
