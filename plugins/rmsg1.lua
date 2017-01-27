@@ -7,8 +7,8 @@ local function run(msg, matches)
 local group = load_data('bot/group.json')
 local addgroup = group[tostring(msg.chat_id)]
     if matches[1] == 'rmsg' then
-    if msg.chat_id_:match("^-40") then
-       if is_sudo(msg) or is_momod(msg) or is_owner(msg) and addgroup then
+    --if msg.chat_id_:match("^-40") then
+       if is_sudo(msg) or is_owner(msg) and addgroup then
           if tonumber(matches[2]) > 40 or tonumber(matches[2]) < 1 then
              pm = '<b>More than</b> <code>1</code> <b>and less than</b> <code>40</code>'
              tg.sendMessage(msg.chat_id_, data.msg.id_, 1, pm, 1, 'html')
@@ -24,13 +24,13 @@ local addgroup = group[tostring(msg.chat_id)]
              tg.sendMessage(msg.chat_id_, msg.id_, 1, pm, 1, 'html')
          end
      end
-end
+--end
 end
 end
 
 return {
     patterns = {
-        '^[!#/]([Rr]msg) (%d*)$'
+        '^[!#/]([Rr]msg) (%d+)$'
     },
     run = run
 }
