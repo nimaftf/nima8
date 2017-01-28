@@ -40,13 +40,13 @@ end
 local function run(msg, matches)
 local addgroup = group[tostring(msg.chat_id_)]
 if addgroup then
-if matches[1] == 'filter' and is_mod(msg) then
+if matches[1] == 'filter' and is_momod(msg) or is_owner(msg) then
  return filter_word(msg, matches[2]) 
 end 
-if matches[1] == 'unfilter' and is_mod(msg) then 
+if matches[1] == 'unfilter' and is_momod(msg) or is_owner(msg) then 
 return unfilter_word(msg, matches[2]) 
 end 
-if matches[1] == 'filterlist' and is_mod(msg) then 
+if matches[1] == 'filterlist' and is_momod(msg) or is_owner(msg) then 
 return filter_list(msg) 
 end
 end
