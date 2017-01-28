@@ -57,29 +57,16 @@ for k,v in pairs(group[tostring(msg.chat_id_)]['filterlist']) do
  return var
 end
 function filter_list(msg)
---[[local hash = "gp_lang:"..msg.chat_id_
-local lang = redis:get(hash)
-    local data = load_data(_config.moderation.data)]]
+
 local group = load_data('bot/group.json')
   if not group[tostring(msg.chat_id_)]['filterlist'] then
     group[tostring(msg.chat_id_)]['filterlist'] = {}
     --save_data(_config.moderation.data, data)
 save_data(_config.group.data, group)
     end
- --[[ if not data[tostring(msg.chat_id_)] then
-  if not lang then
-    return '_Group is not added_'
-else
-    return 'گروه به لیست گروه های مدیریتی ربات اضافه نشده است'
-   end
-  end]]
-  -- determine if table is empty
+ 
   if next(group[tostring(msg.chat_id_)]['filterlist']) == nil then --fix way
-      --[[if not lang then
-    return "*Filtered words list* _is empty_"
-      else
-    return "_لیست کلمات فیلتر شده خالی است_"
-     end]]
+      
 text = '<b>Filtered words list is empty</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, text, 1, 'html')
   end
@@ -87,11 +74,7 @@ tg.sendMessage(msg.chat_id_, 0, 1, text, 1, 'html')
     group[tostring(msg.chat_id_)]['filterlist'] = {}
     save_data(_config.group.data, group)
     end
-      --[[if not lang then
-       filterlist = '*List of filtered words :*\n'
-         else
-       filterlist = '_لیست کلمات فیلتر شده :_\n'
-    end]]
+      
 filterlist = '<b>List of filtered words :</b>\n'
 tg.sendMessage(msg.chat_id_, 0, 1, filterlist , 1, 'html')
  local i = 1
