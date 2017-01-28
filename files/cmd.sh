@@ -20,15 +20,15 @@ memUsed_m=$(($memTotal_m-$memFree_m-$memBuffer_m-$memCache_m))
 memUsedPrc=$((($memUsed_b*100)/$memTotal_b))
 
 echo ">>Server Info:"
-echo "\n---------------------------"
-echo "\nMemory: $memUsed_m MB (1GB) \n $memUsedPrc% used !"
-echo "\n---------------------------"
-echo '\nCPU Usage : '"$CPUPer"'%'
-echo "\n---------------------------"
-echo '\nHDD used : '"$hdd"'%'
-echo "\n---------------------------"
-echo '\nProcesses : '"$ProcessCnt"
-echo "\n---------------------------"
-echo '\nUptime : '"$uptime"
-echo "\n---------------------------"
-echo "\n@LeaderCh"
+echo "---------------------------"
+echo "Memory: $memUsed_m MB (1GB) \n$memUsedPrc% used !"
+echo "---------------------------"
+echo 'CPU Usage : '"$CPUPer"'%'
+echo "---------------------------"
+echo 'HDD used : '"$hdd"'%'
+echo "---------------------------"
+echo 'Processes : '"$ProcessCnt"
+echo "---------------------------"
+echo 'Uptime : '"$uptime"
+echo "---------------------------"
+echo "@LeaderCh"
