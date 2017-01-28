@@ -15,7 +15,7 @@ end
    
 text1 = '*Word [*'..word..'*] added to filtered words list*'
 tg.sendMessage(msg.chat_id_, 0, 1, text1 , 1, 'md')
-end
+
 end
 
 local function unfilter_word(msg, word)
