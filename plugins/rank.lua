@@ -10,6 +10,7 @@ else
     message1 = message1 ..i.. '- '..v..' [' ..k.. '] \n'
    i = i + 1
 end
+end		
   tg.sendMessage(msg.chat_id_, 0, 1, message1 , 1, 'html') 
 end
 
