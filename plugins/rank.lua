@@ -4,7 +4,7 @@ local function modlist(msg)
 pm = '<b>No moderator in this group</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'html')
 end	]]	
-  local message = '<b>List of moderators :</b> \n'
+  local message1 = '<b>List of moderators :</b> \n'
   for k,v in pairs(group[tostring(msg.chat_id_)]['moderators']) do
     message1 = message1 ..i.. '- '..v..' [' ..k.. '] \n'
    i = i + 1
