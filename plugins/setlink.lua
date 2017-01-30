@@ -5,8 +5,10 @@ local addgroup = group[tostring(msg.chat_id)]
 redis:get('link'..msg.chat_id_) = nil
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Link Deleted</b>' , 1, 'html')
 end      ]]
+local linkk = 'https://'..matches[2]  
 if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then
-redis:set('link'..msg.chat_id_,'https://'..matches[2])
+--redis:set('link'..msg.chat_id_,'https://'..matches[2])
+redis:set('link'..msg.chat_id_,linkk)    
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
 end    
 --[[local is_links = 'https://'..matches[2]  
@@ -16,7 +18,7 @@ end]]
 end
 return {
   patterns = {
-"^[/#!](setlink) https://(.*)$",
+"^[/#!](setlink) [Hh]ttps://[Tt](.*)$",
 --"^[#!/](setlink) https://telegram.me/joinchat/(.*)$",
 --"^[#!/](setlink) https://t.me/joinchat/(.*)$",    
 --"^[/#!](clean) (.*)$",            
