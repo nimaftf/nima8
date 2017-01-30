@@ -11,22 +11,22 @@ if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then
 redis:set('link'..msg.chat_id_,linkk)    
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
 end    ]]
-redis:set('link'..msg.chat_id_,'waiting')
-save_data(_config.group.data, group)
+--redis:set('link'..msg.chat_id_,'waiting')
+--save_data(_config.group.data, group)
 if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then  
-if msg.content_.text_ then
-local is_links = msg.content_.text_:match("^([https?://w]*.?telegram.me/joinchat/%S+)$") or msg.content_.text_:match("^([https?://w]*.?t.me/joinchat/%S+)$")
-if matches[2]== is_links and redis:set('link'..msg.chat_id_,'waiting') then
+--if msg.content_.text_ then
+local is_links = msg.text:match("[Hh][Tt][Tt][Pp][Ss].//[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Hh][Tt][Tt][Pp].//[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Hh][Tt][Tt][Pp][Ss].//[Tt].[Mm][Ee]/") or msg.text:match("[Hh][Tt][Tt][Pp].//[Tt].[Mm][Ee]/")
+if matches[2] == is_links --[[and redis:set('link'..msg.chat_id_,'waiting')]] then
 redis:set('link'..msg.chat_id_, matches[2] )
 save_data(_config.group.data, group)
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
 end
-end
+--end
 end    
 end
 return {
   patterns = {
-"^[/#!](setlink) [Hh]ttps://[Tt](.*)$",
+"^[/#!](setlink) [Hh]ttp(.*)$",
 --"^[#!/](setlink) https://telegram.me/joinchat/(.*)$",
 --"^[#!/](setlink) https://t.me/joinchat/(.*)$",    
 --"^[/#!](clean) (.*)$",            
