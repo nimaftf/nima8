@@ -20,6 +20,10 @@ if matches[2] == is_links --[[and redis:set('link'..msg.chat_id_,'waiting')]] th
 redis:set('link'..msg.chat_id_, matches[2] )
 save_data(_config.group.data, group)
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
+else
+redis:set('link'..msg.chat_id_, nil )
+save_data(_config.group.data, group)
+tg.sendMessage(msg.chat_id_, 0, 1, '<b>Not link</b>', 1, 'html')
 end
 --end
 end    
