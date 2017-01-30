@@ -3,7 +3,8 @@ local function modlist(msg)
 if next(group[tostring(msg.chat_id_)]['moderators']) == nil then 
 pm = '<b>No moderator in this group</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm , 1, 'html')
-end
+--end
+else		
   local message = '<b>List of moderators :</b> \n'
   for k,v in pairs(group[tostring(msg.chat_id_)]['moderators']) do
     message1 = message1 ..i.. '- '..v..' [' ..k.. '] \n'
