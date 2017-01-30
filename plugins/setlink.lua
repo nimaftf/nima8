@@ -5,16 +5,24 @@ local addgroup = group[tostring(msg.chat_id)]
 redis:get('link'..msg.chat_id_) = nil
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Link Deleted</b>' , 1, 'html')
 end      ]]
-local linkk = 'https://'..matches[2]  
+--[[local linkk = 'https://'..matches[2]  
 if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then
---redis:set('link'..msg.chat_id_,'https://'..matches[2])
+
 redis:set('link'..msg.chat_id_,linkk)    
 tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
+end    ]]
+redis:set('link'..msg.chat_id_,'waiting')
+save_data(_config.group.data, group)
+if matches[1] == 'setlink' and is_owner(msg) or is_momod(msg) and addgroup then  
+if msg.content_.text_ then
+local is_links = msg.content_.text_:match("^([https?://w]*.?telegram.me/joinchat/%S+)$") or msg.content_.text_:match("^([https?://w]*.?t.me/joinchat/%S+)$")
+if matches[2]== is_links and redis:set('link'..msg.chat_id_,'waiting') then
+redis:set('link'..msg.chat_id_, matches[2] )
+save_data(_config.group.data, group)
+tg.sendMessage(msg.chat_id_, 0, 1, '<b>Group Link Saved</b>', 1, 'html')
+end
+end
 end    
---[[local is_links = 'https://'..matches[2]  
-if matches[2] == not is_links then
-tg.sendMessage(msg.chat_id_, 0, 1, '<b>Not Link</b>', 1, 'html')
-end]]    
 end
 return {
   patterns = {
