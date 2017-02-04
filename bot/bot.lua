@@ -81,12 +81,12 @@ end
 tg.sendMessage(msg.chat_id_, 0, 1, filterlist , 1, 'md')
 end]]
 
-function kick_user(user_id, chat_id)
+--[[function kick_user(user_id, chat_id)
 if not tonumber(user_id) then
 return false
 end 
 tg.changeChatMemberStatus(chat_id, user_id, 'Kicked')
-end
+end]]
 --[[function msg_valid(msg)
   if msg.date_ < os.time() - 60 then
     print('\27[36mOld msg\27[39m')
