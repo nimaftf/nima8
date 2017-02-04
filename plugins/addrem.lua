@@ -33,6 +33,7 @@ mute_voice = "no",
 mute_document = "no",
 mute_gif = "no",
 mute_audio = "no",
+welcome	= "no",			
 --NUM_MSG_MAX = 5				
                   }
       }
