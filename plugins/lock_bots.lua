@@ -52,10 +52,3 @@ return {
 patterns = {},
  pre_process = pre_process
 }
-
-
-
-elseif msg.content_.ID == "MessageChatAddMembers" then
-    msg.text = "!!!tdservice:"
-elseif msg.content_.ID == "MessageChatJoinByLink"  then
-    msg.text = "!!!tddservice:"	
