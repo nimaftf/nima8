@@ -46,10 +46,10 @@ local function pre_process(msg)
    local chat = msg.chat_id_
    local user = msg.sender_user_id_
  local group = load_data('bot/group.json')
-	local function welcome_cb(arg, data)
+	local function welcome_cb(msg, data)
 	    group = load_data('bot/group.json')
-    if group[arg.chat_id]['setwelcome'] then
-     welcome = group[arg.chat_id]['setwelcome']
+    if group[msg.chat_id_]['setwelcome'] then
+     welcome = group[msg.chat_id_]['setwelcome']
 	 tg.sendMessage(msg.chat_id_, 0, 1, welcome, 1, 'md')
     else
      welcome = "*Welcome {name}*"
@@ -64,7 +64,7 @@ end
 		--local welcome = welcome:gsub("{rules}", rules)
 		local welcome = welcome:gsub("{name}", check_markdown(data.first_name_))
 		local welcome = welcome:gsub("{username}", user_name)
-		tg.sendMessage(arg.chat_id, arg.msg_id, 0, welcome, 0, "md")
+		tg.sendMessage(msg.chat_id_, msg.msg_id_, 0, welcome, 0, "md")
 	end
 	local addgroup = group[tostring(msg.chat_id)]
 	if addgroup and group[tostring(chat)]['settings'] then
