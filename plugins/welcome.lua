@@ -36,7 +36,7 @@ if addgroup and is_momod(msg) or is_owner(msg) then
 	if matches[1] == "setwelcome" and matches[2] and is_momod(msg) or is_owner(msg) then
 		group[tostring(chat)]['setwelcome'] = matches[2]
 	    save_data(_config.group.data, group)
-        pm4 = "Welcome Message Has Been Set To :_\n*"..matches[2].."\n\n`{name}` ➣ *New Member First Name*\n`{username}` ➣ *New Member Username*"
+        pm4 = "*Welcome Message Has Been Set To :\n*"..matches[2].."\n\n`{name}` ➣ *New Member First Name*\n`{username}` ➣ *New Member Username*"
         tg.sendMessage(msg.chat_id_, 0, 1, pm4, 1, 'md')
 	end
 end
