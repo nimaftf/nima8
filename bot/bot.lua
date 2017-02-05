@@ -100,6 +100,21 @@ function match_plugins(msg)
   end
 
 end]]
+function check_markdown(text) 
+		str = text
+		if str:match('_') then
+			output = str:gsub('_','\\_')
+		elseif str:match('*') then
+			output = str:gsub('*','\\*')
+		elseif str:match('`') then
+			output = str:gsub('`','\\`')
+		else
+			output = str
+		end
+	return output
+end
+
+
 function is_sudo(msg)
   local var = false
   for v, user in pairs(_config.sudo_users) do
