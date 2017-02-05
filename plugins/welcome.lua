@@ -105,32 +105,3 @@ pre_process = pre_process
 }
 
 
-pm = '<b>SuperGroup settings</b>\n-------------------------------------------'
-pm = pm..'\n1- <code>Lock Links</code> : '..group[tostring(target)]['settings']['lock_link']..''
-pm = pm..'\n2- <code>Lock Username</code> : '..group[tostring(target)]['settings']['lock_username']..''
-pm = pm..'\n3- <code>Lock Tag</code> : '..group[tostring(target)]['settings']['lock_tag']..''
-pm = pm..'\n4- <code>Lock Edit</code> : '..group[tostring(target)]['settings']['lock_edit']..''
-pm = pm..'\n5- <code>Lock Fwd</code> : '..group[tostring(target)]['settings']['lock_fwd']..''
---pm = pm..'\n5- <code>Lock Flood</code> : '..group[tostring(target)]['settings']['lock_flood']..''
-pm = pm..'\n6- <code>Lock Fosh</code> : '..group[tostring(target)]['settings']['lock_fosh']..''
-pm = pm..'\n7- <code>Lock Tgservice</code> : '..group[tostring(target)]['settings']['lock_tgservice']..''
-pm = pm..'\n8- <code>Lock Sticker</code> : '..group[tostring(target)]['settings']['lock_sticker']..''
-pm = pm..'\n- <code>Lock Contact</code> : '..group[tostring(target)]['settings']['lock_contact']..''
-pm = pm..'\n- <code>Lock Location</code> : '..group[tostring(target)]['settings']['lock_location']..''
-pm = pm..'\n- <code>Lock Game</code> : '..group[tostring(target)]['settings']['lock_game']..''
-pm = pm..'\n12- <code>Lock Bot</code> : '..group[tostring(target)]['settings']['lock_bot']..''
-pm = pm..'\n13- <code>Lock Inline</code> : '..group[tostring(target)]['settings']['lock_inline']..''
-pm = pm..'\n14- <code>Lock Spam</code> : '..group[tostring(target)]['settings']['lock_spam']..''
-pm = pm..'\n15- <code>Lock English</code> : '..group[tostring(target)]['settings']['lock_english']..''
-pm = pm..'\n16- <code>Lock Arabic</code> : '..group[tostring(target)]['settings']['lock_persian']..''
---pm = pm..'\n     ًں”§<b>Mute</b>ًں”§'
-pm = pm..'\n17- <code>Lock Gifs</code> : '..group[tostring(target)]['settings']['mute_gif']..''
-pm = pm..'\n18- <code>Lock Photo</code> : '..group[tostring(target)]['settings']['mute_photo']..''
-pm = pm..'\n19- <code>Lock Video</code> : '..group[tostring(target)]['settings']['mute_video']..''
-pm = pm..'\n20- <code>Lock Voice</code> : '..group[tostring(target)]['settings']['mute_voice']..''
-pm = pm..'\n21- <code>Lock Document</code> : '..group[tostring(target)]['settings']['mute_document']..''
-pm = pm..'\n22- <code>Lock Audio</code> : '..group[tostring(target)]['settings']['mute_audio']..'\n-------------------------------------------'
-pm = pm..'\n23- <code>Mute All</code> : '..group[tostring(target)]['settings']['mute_all']..''
-pm = pm..'\n24- <code>Welcome</code> : '..group[tostring(chat)]['settings']['welcome']..''
-
-
