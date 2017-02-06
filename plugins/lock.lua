@@ -738,10 +738,10 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm1 , 1, 'md')
 end	
 end			
 	
-if matches[1] == 'id' then 
+--[[if matches[1] == 'id' then 
 pm = '*SuperGroup ID:* [_'..msg.chat_id_..'_]\n*User ID:* [_'..msg.sender_user_id_..'_]\n\n*Channel:* @LeaderCH'			
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'md') 
-end	     
+end	]]     
 if is_momod(msg) or is_owner(msg) then	
 if matches[1] == 'mute' and matches[2] == 'all' then
 mute_all_group(msg, msg.chat_id)
@@ -868,14 +868,14 @@ return {
     "^[/#!](unlock) (.*)$",
     "^[/#!](mute) (.*)$",
 	"^[/#!](unmute) (.*)$",
-	"^[/#!](id)$",
+	--"^[/#!](id)$",
 	"^[/#!](settings)$",
 	"^[/#!](setflood) (%d+)$",
---"^!!!edit:[/#!](lock) (.*)$",
---"^!!!edit:[/#!](unlock) (.*)$",
---"^!!!edit:[/#!](mute) (.*)$",
---"^!!!edit:[/#!](unmute) (.*)$",
---"^!!!edit:[/#!](settings)$",
+"^!!!edit:[/#!](lock) (.*)$",
+"^!!!edit:[/#!](unlock) (.*)$",
+"^!!!edit:[/#!](mute) (.*)$",
+"^!!!edit:[/#!](unmute) (.*)$",
+"^!!!edit:[/#!](settings)$",
 --"^!!!edit:[/#!](id)$",
 --"^!!!edit:[/#!](setflood) (%d+)$",
   },
