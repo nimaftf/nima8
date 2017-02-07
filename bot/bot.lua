@@ -113,7 +113,18 @@ function check_markdown(text)
 		end
 	return output
 end
-
+function is_silent_user(user_id, chat_id)
+  local var = false
+  local group = load_data('bot/group.json')
+  if group[tostring(chat_id)] then
+    if group[tostring(chat_id)]['is_silent_users'] then
+      if group[tostring(chat_id)]['is_silent_users'][tostring(user_id)] then
+        var = true
+      end
+    end
+  end
+return var
+end
 
 function is_sudo(msg)
   local var = false
