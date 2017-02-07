@@ -43,10 +43,10 @@ user_name = '@'..check_markdown(data.username_)
 else
 user_name = check_markdown(data.first_name_)
 end
-   --[[if is_momod(msg) then
+   if is_momod(msg) then
         tg.sendMessage(arg.chat_id, "", 0, "*You can't mute mods,owners and bot admins*", 0, "md")
 --		tg.sendMessage(msg.chat_id_, 0, 1, "*You can't mute mods,owners and bot admins*", 1, 'md')
-   end]]
+   end
 if group[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] then
       tg.sendMessage(arg.chat_id, "", 0, "*User* [`"..data.id_.."`] *is already mute*", 0, "md")
 --	  tg.sendMessage(msg.chat_id_, 0, 1, "*User* [`"..data.id_.."`] *is already mute*", 1, 'md')
