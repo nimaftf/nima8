@@ -1,4 +1,3 @@
-local chat = msg.chat_id_
 local function pre_process(msg)
 chat = msg.chat_id_
 user = msg.sender_user_id_
