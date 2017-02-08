@@ -48,12 +48,12 @@ end
 --		tg.sendMessage(msg.chat_id_, 0, 1, '*You can't mute mods,owners and bot admins*', 1, 'md')
    end]]
 if group[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] then
-      tg.sendMessage(arg.chat_id, 0, 1, '*User* [`'..data.id_..'`] *is already mute*', 1, "md")
+      tg.sendMessage(arg.chat_id, 0, 1, '*User* [`'..data.id_..'`] *is already mute*', 1, 'md')
 --	  tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..data.id_..'`] *is already mute*', 1, 'md')
    end
 group[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] = user_name
     save_data(_config.group.data, group)
-      tg.sendMessage(arg.chat_id, 0, 1, '*User* [`'..data.id_..'`] *added to mute users list*', 1, "md")
+      tg.sendMessage(arg.chat_id, 0, 1, '*User* [`'..data.id_..'`] *added to mute users list*', 1, 'md')
 --	  tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..data.id_..'`] *added to mute users list*', 1, 'md')
 end
 tdcli_function ({
@@ -70,12 +70,12 @@ else
 user_name = check_markdown(data.first_name_)
 end
 if not group[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] then
-     tg.sendMessage(arg.chat_id, 0, 1, '*User* [`'..data.id_..'`] *is not mute*', 1, "md")
+     tg.sendMessage(arg.chat_id, 0, 1, '*User* [`'..data.id_..'`] *is not mute*', 1, 'md')
 --	 tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..data.id_..'`] *is not mute*', 1, 'md')
    end
 group[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] = nil
     save_data(_config.group.data, group)
-      tg.sendMessage(arg.chat_id, 0, 1, '*User* [`'..data.id_..'`] *removed from mute users list*', 1, "md")
+      tg.sendMessage(arg.chat_id, 0, 1, '*User* [`'..data.id_..'`] *removed from mute users list*', 1, 'md')
 --      tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..data.id_..'`] *removed from mute users list*', 1, 'md')
 end
 tdcli_function ({
@@ -84,7 +84,7 @@ tdcli_function ({
   }, unsilent_cb, {chat_id=data.chat_id_,user_id=data.sender_user_id_})
   end
 else
-   tg.sendMessage(data.chat_id_, 0, 1, '*User Not Found*', 1, "md")
+   tg.sendMessage(data.chat_id_, 0, 1, '*User Not Found*', 1, 'md')
 --   tg.sendMessage(msg.chat_id_, 0, 1, '*User Not Found*', 1, 'md')
 end
 end
@@ -104,26 +104,26 @@ end
 --	  tg.sendMessage(msg.chat_id_, 0, 1, '*You can't mute mods,owners and bot admins*', 1, 'md')
    end]]
 if group[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] then
-      tg.sendMessage(arg.chat_id, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *is already mute*', 1, "md")
+      tg.sendMessage(arg.chat_id, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *is already mute*', 1, 'md')
 --      tg.sendMessage(msg.chat_id_, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *is already mute*', 1, 'md')
 end
 group[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] = user_name
     save_data(_config.group.data, group)
-      tg.sendMessage(arg.chat_id, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *added to mute users list*', 1, "md")
+      tg.sendMessage(arg.chat_id, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *added to mute users list*', 1, 'md')
 --      tg.sendMessage(msg.chat_id_, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *added to mute users list*', 1, 'md')
 end
   if cmd == "unsilent" then
 if not group[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] then
-     tg.sendMessage(arg.chat_id, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *is not mute*', 1, "md")
+     tg.sendMessage(arg.chat_id, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *is not mute*', 1, 'md')
 --	 tg.sendMessage(msg.chat_id_, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *is not mute*', 1, 'md')
 end
 group[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] = nil
     save_data(_config.group.data, group)
-      tg.sendMessage(arg.chat_id, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *removed from mute users list*', 1, "md")
+      tg.sendMessage(arg.chat_id, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *removed from mute users list*', 1, 'md')
 --      tg.sendMessage(msg.chat_id_, 0, 1, '*User* ['..uesr_name..'][`'..data.id_..'`] *removed from mute users list*', 1, 'md')
 	  end
 else
-   tg.sendMessage(arg.chat_id, 0, 1, '*User Not Found*', 1, "md")
+   tg.sendMessage(arg.chat_id, 0, 1, '*User Not Found*', 1, 'md')
 --   tg.sendMessage(msg.chat_id_, 0, 1, '*User Not Found*', 1, 'md')
 end
 end
@@ -147,12 +147,12 @@ end
            tg.sendMessage(msg.chat_id_, "", 0, '*You can't mute mods,leaders or bot admins*', 0, "md")
        end]]
    if is_silent_user(matches[2], chat) then
-    tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..matches[2]..'`] *is already mute*', 1, "md")
+    tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..matches[2]..'`] *is already mute*', 1, 'md')
 --	tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..matches[2]..'`] *is already mute*', 1, 'md')
    end
     group[tostring(chat)]['is_silent_users'][tostring(matches[2])] = ""
     save_data(_config.group.data, group)
-    tg.sendMessage(msg.chat_id_, msg.id_, 0, '*User* [`'..matches[2]..'`] *added to mute users list*', 1, "md")
+    tg.sendMessage(msg.chat_id_, msg.id_, 0, '*User* [`'..matches[2]..'`] *added to mute users list*', 1, 'md')
 --  tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..matches[2]..'`] *added to mute users list*', 1, 'md')
    end
   if matches[2] and not string.match(matches[2], '^%d+$') then
@@ -172,12 +172,12 @@ if not matches[2] and tonumber(msg.reply_to_message_id_) ~= 0 then
 end
   if matches[2] and string.match(matches[2], '^%d+$') then
    if not is_silent_user(matches[2], chat) then
-      tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..matches[2]..'`] *is not mute*', 1, "md")
+      tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..matches[2]..'`] *is not mute*', 1, 'md')
 --      tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..matches[2]..'`] *is not mute*', 1, 'md')
      end
 group[tostring(chat)]['is_silent_users'][tostring(matches[2])] = nil
     save_data(_config.group.data, group)
-  tg.sendMessage(msg.chat_id_, msg.id_, 0, '*User* [`'..matches[2]..'`] *removed from mute users list*', 1, "md")
+  tg.sendMessage(msg.chat_id_, msg.id_, 0, '*User* [`'..matches[2]..'`] *removed from mute users list*', 1, 'md')
 --  tg.sendMessage(msg.chat_id_, 0, 1, '*User* [`'..matches[2]..'`] *removed from mute users list*', 1, 'md')
    end
   if matches[2] and not string.match(matches[2], '^%d+$') then
