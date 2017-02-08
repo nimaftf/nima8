@@ -125,6 +125,8 @@ function is_silent_user(msg)
   end
 return var
 end
+function dl_cb1 (arg, data)
+end
 
 function is_sudo(msg)
   local var = false
