@@ -1,3 +1,4 @@
+local chat = msg.chat_id_
 local function pre_process(msg)
 chat = msg.chat_id_
 user = msg.sender_user_id_
@@ -14,7 +15,7 @@ tg.deleteMessages(msg.chat_id_, {[0] = message_ids}, dl_cb, nil)
 end
 end
 
-function silent_users_list(msg.chat_id_)
+function silent_users_list(chat)
     local group = load_data('bot/group.json')
     local i = 1
   -- determine if table is empty
@@ -188,7 +189,7 @@ group[tostring(chat)]['is_silent_users'][tostring(matches[2])] = nil
       end
    end
 if matches[1] == "mutelist" and addgroup and is_momod(msg) or is_owner(msg) then
-  return silent_users_list(msg.chat_id_)
+  return silent_users_list(chat)
 --  return silent_users_list(chat)
 end
 end
