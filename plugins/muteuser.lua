@@ -8,7 +8,7 @@ else
 user_name = check_markdown(data.first_name_)
 end
 end
-if is_silent_user(user, chat) then
+if is_silent_user(msg) then
 --tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 tg.deleteMessages(msg.chat_id_, {[0] = message_ids}, dl_cb, nil)
 end
