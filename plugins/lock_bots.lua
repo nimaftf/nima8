@@ -2,7 +2,7 @@ function kick_user(user_id, chat_id)
 if not tonumber(user_id) then
 return false
 end
-  tg.changeChatMemberStatus(chat_id, user_id, 'Kicked', dl_cb, nil)
+  tg.changeChatMemberStatus(chat_id, user_id, 'Kicked', dl_cb1, nil)
 end
 
 --[[function kick_user(user_id, chat_id)
