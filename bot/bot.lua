@@ -113,7 +113,7 @@ function check_markdown(text)
 		end
 	return output
 end
-function is_silent_user(user_id, chat_id)
+function is_silent_user(msg)
   local var = false
   local group = load_data('bot/group.json')
   if group[tostring(chat_id)] then
