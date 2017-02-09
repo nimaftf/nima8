@@ -17,7 +17,7 @@ if group_welcome == 'yes' and is_add_user or is_join_by_link then
 if group[msg.chat_id]['setwelcome'] then
 tg.sendMessage(msg.chat_id_, 0, 1, set_welcome , 1, 'md')
 else
-textt = "*Welcome {name}*"
+textt = '*Welcome {name}*'
 tg.sendMessage(msg.chat_id_, 0, 1, textt, 1, 'md')
 end 
 end      
