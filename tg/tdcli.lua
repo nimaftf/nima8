@@ -1,4 +1,4 @@
-tg.changeChatMemberStatus(chat_id, user_id, "Kicked")
+
 local M = {}
 local getChatId = function(chat_id)
   local chat = {}
