@@ -9,7 +9,7 @@ local group_fwd_lock = group[tostring(msg.chat_id)]['settings']['lock_fwd']
 if group_fwd_lock == 'yes' and msg.forward_info_ then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_welcome = group[tostring(msg.chat_id_)]['settings']['welcome']
+local group_welcome = group[tostring(msg.chat_id)]['settings']['welcome']
 local set_welcome = group[msg.chat_id_)]['setwelcome'] 
 local is_add_user = msg.text:match("!!!tdservice:")
 local is_join_by_link = msg.text:match("!!!tddservice:") 
