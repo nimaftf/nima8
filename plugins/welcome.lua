@@ -67,7 +67,7 @@ end
 		tg.sendMessage(arg.chat_id, arg.msg_id, 0, welcome, 0, "md")
 	end
 	local addgroup = group[tostring(msg.chat_id)]
-	if addgroup and group[tostring(chat)]['settings'] then
+	--[[if addgroup and group[tostring(chat)]['settings'] then
 	local is_add_user = msg.text:match("!!!tdservice:")
 	if is_add_user then
 		welcome = group[tostring(msg.chat_id_)]['settings']['welcome']
@@ -92,7 +92,7 @@ end
 			return false
         end
 		end
-	end
+	end]]
  end
 return {
 patterns ={
