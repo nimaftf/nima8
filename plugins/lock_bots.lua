@@ -23,7 +23,7 @@ local function pre_process(msg)
 		end
 	end
 	
-	local is_bot_msg = msg.text:match("!!!tdservice:")
+	--[[local is_bot_msg = msg.text:match("!!!tdservice:")
 	if is_bot_msg then
 		local group = load_data('bot/group.json')
 		local lock_bots = group[tostring(msg.chat_id_)]["settings"]["lock_bot"] 
@@ -33,10 +33,9 @@ local function pre_process(msg)
 			user_id_ = is_bot_msg 
 			}, del_bots, {chat_id=msg.chat_id_})
 		end
-	end
+	end]]	
 	
-	
-    --[[if msg.content_.text_ then
+    if msg.content_.text_ then
 		 local group = load_data('bot/group.json')
 		 local lock_bots = group[tostring(msg.chat_id_)]["settings"]["lock_bots"] 
 		 if lock_bots == 'yes' then
@@ -45,7 +44,7 @@ local function pre_process(msg)
 			 user_id_ = msg.sender_user_id_
 			 }, del_bots, {chat_id=msg.chat_id_})
 		 end
-	    end]]
+	    end
 	
 end
 
