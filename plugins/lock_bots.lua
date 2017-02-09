@@ -17,8 +17,8 @@ local function pre_process(msg)
 	function del_bots(arg, data)
 		if data.username_ then
 			if string.sub(data.username_:lower(), -3) == 'bot' then
-				kick_user(data.id_, arg.chat_id)
-				--chat_del_user(msg.chat_id_, msg.sender_user_id_) 
+				--kick_user(data.id_, arg.chat_id)
+				chat_del_user(msg.chat_id_, msg.sender_user_id_) 
 			end
 		end
 	end
