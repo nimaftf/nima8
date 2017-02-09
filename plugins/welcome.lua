@@ -48,14 +48,13 @@ local function pre_process(msg)
  local group = load_data('bot/group.json')
 	local function welcome_cb(arg, data)
 	    group = load_data('bot/group.json')
-    if group[arg.chat_id]['setwelcome'] then
+    --[[if group[arg.chat_id]['setwelcome'] then
      welcome = group[arg.chat_id]['setwelcome']
 	 tg.sendMessage(msg.chat_id_, 0, 1, welcome, 1, 'md')
     else
      welcome = "*Welcome {name}*"
 	 tg.sendMessage(msg.chat_id_, 0, 1, welcome, 1, 'md')
-    end
-
+    end]]
 if data.username_ then
 user_name = "@"..check_markdown(data.username_)
 else
