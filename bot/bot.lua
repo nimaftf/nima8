@@ -133,7 +133,7 @@ function kick_user(user_id, chat_id)
 if not tonumber(user_id) then
 return false
 end
-  tdcli.changeChatMemberStatus(chat_id, user_id, 'Kicked', dl_cb1, nil)
+  tg.changeChatMemberStatus(chat_id, user_id, 'Kicked', dl_cb1, nil)
 end
 
 function is_sudo(msg)
