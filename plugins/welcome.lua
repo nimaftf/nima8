@@ -108,17 +108,5 @@ run=run,
 pre_process = pre_process
 }
 
---bot.lua
-      elseif msg.content_.ID == "MessageChatAddMembers" then
-				if msg_valid(msg) then
-					for i=0,#msg.content_.members_ do
-						msg.adduser = msg.content_.members_[i].id_
-						match_plugins(msg)
-					end
-				end	
-	  elseif msg.content_.ID == "MessageChatJoinByLink" then
-				if msg_valid(msg) then
-						msg.joinuser = msg.sender_user_id_
-						match_plugins(msg)
-				end			
---bot.lua				
+			
+				
