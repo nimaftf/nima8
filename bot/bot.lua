@@ -130,10 +130,10 @@ function dl_cb1 (arg, data)
 end
 
 function kick_user(user_id, chat_id)
-if not tonumber(user_id) then
+--[[if not tonumber(user_id) then
 return false
-end
-  tg.changeChatMemberStatus(chat_id, user_id_, 'Kicked')
+end]]
+  changeChatMemberStatus(chat_id, user_id, "Kicked")
 end
 
 function is_sudo(msg)
