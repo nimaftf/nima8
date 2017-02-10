@@ -87,14 +87,14 @@ return false
 end 
 tg.changeChatMemberStatus(chat_id, user_id, 'Kicked')
 end]]
---[[function msg_valid(msg)
+function msg_valid(msg)
   if msg.date_ < os.time() - 60 then
     print('\27[36mOld msg\27[39m')
     return false
   end
   return true
 end
-function match_plugins(msg)
+--[[function match_plugins(msg)
   for name, plugin in pairs(plugins) do
     match_plugin(plugin, name, msg)
   end
