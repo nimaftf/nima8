@@ -534,10 +534,22 @@ function tdcli_update_callback(data)
         end
       elseif msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == "MessageChatDeleteMember" or msg.content_.ID == "MessageChatChangeTitle" or msg.content_.ID == "MessageChatChangePhoto" or msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageGameScore"  then
         msg.text = "!!!tgservice:joinbylink"
-      elseif msg.content_.ID == "MessageChatAddMembers" then
+     --[[ elseif msg.content_.ID == "MessageChatAddMembers" then
     msg.text = "!!!tdservice:"
       elseif msg.content_.ID == "MessageChatJoinByLink"  then
-    msg.text = "!!!tddservice:"	
+    msg.text = "!!!tddservice:"	]]				
+	elseif msg.content_.ID == "MessageChatAddMembers" then
+				if msg_valid(msg) then
+					for i=0,#msg.content_.members_ do
+						msg.adduser = msg.content_.members_[i].id_
+						match_plugins(msg)
+					end
+				end	
+	  elseif msg.content_.ID == "MessageChatJoinByLink" then
+				if msg_valid(msg) then
+					msg.joinuser = msg.sender_user_id_
+					match_plugins(msg)
+				end					
 				
       elseif msg.content_.ID == "MessageSticker" then
         msg.text = "!!!sticker:" .. data.message_.content_.sticker_.emoji_
