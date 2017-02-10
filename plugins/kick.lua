@@ -102,15 +102,3 @@ return {
 	run = run,
 pre_process = pre_process
 }
-
---bot.lua
-function dl_cb (arg, data)
-end
-
-function kick_user(user_id, chat_id)
-if not tonumber(user_id) then
-return false
-end
-  tdcli.changeChatMemberStatus(chat_id, user_id, 'Kicked', dl_cb, nil)
-end
---bot.lua
