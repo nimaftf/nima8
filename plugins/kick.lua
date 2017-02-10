@@ -6,7 +6,7 @@ user = msg.sender_user_id_
 		lock_bots = group[arg.chat_id]['settings']['lock_bot']
         if data.type_.ID == "UserTypeBot" then
             if not is_owner(arg.msg) or is_momod(arg.msg) and lock_bots == 'yes' then
-                kick_user(data.id_, arg.chat_id)
+                kick_user(data.id_, arg.chat_id_)
             end
         end
         if data.username_ then
@@ -59,7 +59,7 @@ local group = load_data('bot/group.json')
                 --[[if is_momod(arg.chat_id, data.id_) then
                     tg.sendMessage(arg.chat_id, "", 0, "*You can't kick mods,owners and bot admins*", 0, "md")
                 else]]
-                    kick_user(data.id_, arg.chat_id)
+                    kick_user(data.id_, arg.chat_id_)
                 --end
             end
         else
