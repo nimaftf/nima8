@@ -9,7 +9,7 @@ local group = load_data('bot/group.json')
 local group_lock_bot = group[tostring(msg.chat_id)]['settings']['lock_bot']
 if group_lock_bot == 'yes'  and  data.type_.ID == "UserTypeBot" then
 --tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
-kick_user(data.id_, arg.chat_id)
+kick_user(arg.chat_id,data.id_)
 end
 
 end
