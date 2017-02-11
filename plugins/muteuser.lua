@@ -121,7 +121,7 @@ local function run(msg, matches)
     local addgroup = group[tostring(msg.chat_id)]
     chat = msg.chat_id_
     user = msg.sender_user_id_
-	if addgroup and is_momod(msg) or is_owner(msg)
+	if addgroup and is_momod(msg) or is_owner(msg) then
         if matches[1] == "muteuser" then
 			if not matches[2] and tonumber(msg.reply_to_message_id_) ~= 0 then
 				tdcli_function ({
@@ -188,17 +188,3 @@ return {
 pre_process = pre_process
 }
 
---bot.lua
-function is_silent_user(user_id, chat_id)
-  local var = false
-  local group = load_data('bot/group.json')
-  if group[tostring(chat_id)] then
-    if group[tostring(chat_id)]['is_silent_users'] then
-      if group[tostring(chat_id)]['is_silent_users'][tostring(user_id)] then
-        var = true
-      end
-    end
-  end
-return var
-end
---bot.lua
