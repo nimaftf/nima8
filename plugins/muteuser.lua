@@ -14,7 +14,7 @@ user = msg.sender_user_id_
     end
 end
 
-function silent_users_list(chat_id)
+--[[function silent_users_list(chat_id)
     local group = load_data('bot/group.json')
     local i = 1
   -- determine if table is empty
@@ -28,7 +28,7 @@ function silent_users_list(chat_id)
         i = i + 1
     end
     tg.sendMessage(msg.chat_id_, 0, 1, message, 1, 'md')
-end
+end]]
 
 local function action_by_reply(arg, data)
     local cmd = arg.cmd
