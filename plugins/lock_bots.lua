@@ -41,9 +41,4 @@ patterns = {},
  pre_process = pre_process
 }
 
---bot.lua
-elseif msg.content_.ID == "MessageChatAddMembers" then
-    msg.text = "!!!tdservice:"
-elseif msg.content_.ID == "MessageChatJoinByLink"  then
-    msg.text = "!!!tddservice:"	
---bot.lua	
+	
