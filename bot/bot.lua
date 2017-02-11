@@ -125,6 +125,21 @@ function is_silent_user(msg)
   end
 return var
 end
+function silent_users_list(chat_id)
+    local group = load_data('bot/group.json')
+    local i = 1
+  -- determine if table is empty
+    if next(group[tostring(chat_id)]['is_silent_users']) == nil then --fix way
+        text1 = '*No mute users in this group*'
+	    tg.sendMessage(msg.chat_id_, 0, 1, text1, 1, 'md')
+    end
+    message = '*List of mute users :*\n'
+    for k,v in pairs(group[tostring(chat_id)]['is_silent_users']) do
+        message = message.. '*' ..i.. '-* '..v..' [' ..k.. '] \n'
+        i = i + 1
+    end
+    tg.sendMessage(msg.chat_id_, 0, 1, message, 1, 'md')
+end
 
 function dl_cb1 (arg, data)
 end
