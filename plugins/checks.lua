@@ -11,7 +11,8 @@ local group_lock_bot = group[tostring(msg.chat_id)]['settings']['lock_bot']
 if msg.content_.members_[0].username_ and msg.content_.members_[0].username_:match("[Bb][Oo][Tt]$") then   
 if group_lock_bot == 'yes' then       
 --tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
- kick_user(msg.chat_id_,msg.sender_user_id_)
+ --kick_user(msg.chat_id_,msg.sender_user_id_)
+ tg.chat_del_user(msg.chat_id_, msg.sender_user_id_)    
 end
 end
 end
