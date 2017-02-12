@@ -1,8 +1,4 @@
-local function msg_processor(msg) 
-     if msg.date < os.time() - 5 then            
-         return 
-    end
-end
+
 local function delmsg (arg,data)
     for k,v in pairs(data.messages_) do
         tg.deleteMessages(v.chat_id_,{[0] = v.id_}, dl_cb, cmd)
@@ -32,5 +28,5 @@ return {
         '^[!#/]([Rr]msg) (%d*)$',
     },
     run = run,
-    msg_processor = msg_processor
+ --   msg_processor = msg_processor
 }
