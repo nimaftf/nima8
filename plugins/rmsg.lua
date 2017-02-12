@@ -8,7 +8,7 @@ local function run(msg, matches)
     local msg_id = msg.id_
     local group = load_data('bot/group.json')
     local addgroup = group[tostring(msg.chat_id)]
-    if addgroup and is_owner(msg) then
+    if addgroup and is_owner(msg) and msg.date < os.time() - 5 then
     if matches[1] == 'rmsg' then
                 if tonumber(matches[2]) > 40 or tonumber(matches[2]) < 1 then
                     pm = '*More than* 1 *and less than* 40'
