@@ -1,4 +1,4 @@
-local group = local function delmsg (arg,data)
+local function delmsg (arg,data)
     for k,v in pairs(data.messages_) do
         tg.deleteMessages(v.chat_id_,{[0] = v.id_}, dl_cb, cmd)
     end
