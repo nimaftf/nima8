@@ -37,8 +37,7 @@ local function pre_process(msg)
 end
 
 return { 
-patterns = { "^(.*)$",	
-},
+patterns = { },
  pre_process = pre_process
 }
 
