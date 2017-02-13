@@ -15,10 +15,10 @@ end
 
 --[[local function ownerlist(msg)
     local group = load_data('bot/group.json')
-	--[[if next(group[tostring(msg.chat_id_)]['set_owner']) == nil then 
+	if next(group[tostring(msg.chat_id_)]['set_owner']) == nil then 
 		text3 = '*No owner in this group*'
 		tg.sendMessage(msg.chat_id_, 0, 1, text3, 1, 'md')
-	end]]
+	end
     pm = group[tostring(msg.chat_id_)]['set_owner']
     tg.sendMessage(msg.chat_id_, 0, 1,'*owner:* [`'..pm..'`]', 1, 'md')
 end]]
