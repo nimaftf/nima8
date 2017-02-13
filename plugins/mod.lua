@@ -1,4 +1,4 @@
---[[local function modlist(msg)
+local function modlist(msg)
     local group = load_data('bot/group.json')
     local i = 1
 	if next(group[tostring(msg.chat_id_)]['moderators']) == 0 then 
@@ -11,7 +11,7 @@
 		i = i + 1
 	end
 	tg.sendMessage(msg.chat_id_, 0, 1, message, 1, 'md')
-end]]
+end
 
 --[[local function ownerlist(msg)
     local group = load_data('bot/group.json')
@@ -188,6 +188,9 @@ local function run(msg, matches)
 	local addgroup = group[tostring(msg.chat_id)]
 	local chat = msg.chat_id_
 	local user = msg.sender_user_id_
+	if matches[1] == "modlist" and is_owner(msg) or is_momod(msg) and addgroup then
+		modlist(msg)
+	end
 	if addgroup then
 		--[[if matches[1] == "setowner" and is_owner(msg) then
 			if not matches[2] and tonumber(msg.reply_to_message_id_) ~= 0 then
@@ -255,9 +258,7 @@ local function run(msg, matches)
 		--[[if matches[1] == "owner" and is_owner(msg) then
 			return ownerlist(msg)
 		end]]
-		if matches[1] == "modlist" and is_owner(msg) or is_momod(msg) then
-			 modlist(msg)
-		end
+		
 	end	
 end
 
