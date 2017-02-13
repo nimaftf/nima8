@@ -213,7 +213,7 @@ return {
     "^[#!/](setowner)$",
     "^[#!/](owner)$",
 --    "^[#!/](modlist)$",
-	"^[#!/](setowner) (.+)$",
+--	"^[#!/](setowner) (.+)$",
 --    "^[#!/](promote)$",
 --	"^[#!/](promote) (.+)$",
 --    "^[#!/](demote)$",
