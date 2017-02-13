@@ -33,11 +33,11 @@ local promote = redis:get('promote'..msg.chat_id_)
 local demote = redis:get('demote'..msg.chat_id_)
 --local muteuser = redis:get('muteuser'..msg.chat_id_..msg.chat_id_)
 if addgroup then
-    if matches[1] == 'owner' then
+    if matches[1] == 'owner' and is_owner(msg) then
 	 pm = group[tostring(msg.chat_id_)]['set_owner']
 	 tg.sendMessage(msg.chat_id_, 0, 1,'<b>owner:</b>[ '..pm..' ]', 1, 'html')
 	end
-	if matches[1] == 'modlist' then               
+	if matches[1] == 'modlist' and is_owner(msg) or is_momod(msg) then               
 	return modlist(msg)
 	end		
     if setowner then
