@@ -62,9 +62,10 @@ local function action_by_reply(arg, data)
 				if group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is already a moderator*", 0, "md")
 				end
-				group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name
-				save_data(_config.group.data, group)
-				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
+				elseif group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then				
+					save_data(_config.group.data, group)
+					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
+				end
 			end
 			tdcli_function ({
 			ID = "GetUser",
@@ -81,12 +82,13 @@ local function action_by_reply(arg, data)
 				end
 				if not group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."] *is not a moderator*", 0, "md")
-				end
-				group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil
-				save_data(_config.group.data, group)
-				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been demoted*", 0, "md")
-			end
-			tdcli_function ({
+				--end
+				elseif group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then				
+                                        save_data(_config.group.data, group)
+				        tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been demoted*", 0, "md")
+				end        		
+ 			end
+                        tdcli_function ({
 			ID = "GetUser",
 			user_id_ = data.sender_user_id_
 			}, demote_cb, {chat_id=data.chat_id_,user_id=data.sender_user_id_})
@@ -121,9 +123,10 @@ local function action_by_username(arg, data)
 			if group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
 				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is already a moderator*", 0, "md")
 			end
-			group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name
-			save_data(_config.group.data, group)
-			tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
+			elseif group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then				
+save_data(_config.group.data, group)
+				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
+			end
 		end
 		if cmd == "demote" then
 			if not group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
