@@ -1,13 +1,13 @@
 local function modlist(msg)
     local group = load_data('bot/group.json')
     local i = 1
-	--[[if next(group[tostring(msg.chat_id_)]['moderators']) == nil then 
+	if next(group[tostring(msg.chat_id_)]['moderators']) == nil then 
 		text1 = '*No moderator in this group*'
 		tg.sendMessage(msg.chat_id_, 0, 1, text1, 1, 'md')
-	end]]
-	local message1 = '*List of moderators :* \n'
+	end
+	local message = '*List of moderators :* \n'
 	for k,v in pairs(group[tostring(msg.chat_id_)]['moderators']) do
-		message = message1.. '*' ..i.. '-* ' ..v.. ' [' ..k.. '] \n'
+		message = message.. '*' ..i.. '-* ' ..v.. ' [' ..k.. '] \n'
 		i = i + 1
 	end
 	tg.sendMessage(msg.chat_id_, 0, 1, message, 1, 'md')
@@ -98,7 +98,7 @@ end
 
 local function action_by_username(arg, data)
 	local cmd = arg.cmd
-    local group = load_data('bot/group.json')
+        local group = load_data('bot/group.json')
 	if not arg.username then return false end
 	if data.id_ then
 		if data.type_.user_.username_ then
@@ -256,7 +256,7 @@ local function run(msg, matches)
 			return ownerlist(msg)
 		end]]
 		if matches[1] == "modlist" and is_owner(msg) or is_momod(msg) then
-			return modlist(msg)
+			 modlist(msg)
 		end
 	end	
 end
