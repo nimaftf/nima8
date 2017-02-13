@@ -1,7 +1,7 @@
 local function modlist(msg)
     local group = load_data('bot/group.json')
     local i = 1
-	if next(group[tostring(msg.chat_id_)]['moderators']) == nil then 
+	if next(group[tostring(msg.chat_id_)]['moderators']) == 0 then 
 		text1 = '*No moderator in this group*'
 		tg.sendMessage(msg.chat_id_, 0, 1, text1, 1, 'md')
 	end
