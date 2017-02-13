@@ -63,7 +63,7 @@ local function action_by_reply(arg, data)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is already a moderator*", 0, "md")
 				--end
 				else 
-					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then				
+					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name 				
 					save_data(_config.group.data, group)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
 				end
@@ -85,7 +85,7 @@ local function action_by_reply(arg, data)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."] *is not a moderator*", 0, "md")
 				--end
 				else 
-					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then				
+					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil 				
                                         save_data(_config.group.data, group)
 				        tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been demoted*", 0, "md")
 				end        		
@@ -126,7 +126,7 @@ local function action_by_username(arg, data)
 				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is already a moderator*", 0, "md")
 			--end
 			else 
-				group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then				
+				group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name 				
 				save_data(_config.group.data, group)
 				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
 			end
@@ -136,7 +136,7 @@ local function action_by_username(arg, data)
 				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is not a moderator*", 0, "md")
 			--end
 			else 
-				group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then				
+				group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil 				
 				save_data(_config.group.data, group)
 				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been demoted*", 0, "md")
 			end	
@@ -172,7 +172,7 @@ local function action_by_id(arg, data)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is already a moderator*", 0, "md")
 				--end
 				else 
-					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then 					
+					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name  					
 					save_data(_config.group.data, group)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
 				end
@@ -182,7 +182,7 @@ local function action_by_id(arg, data)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is not a moderator*", 0, "md")
 				--end
 				else 
-					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then					
+					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil 					
 					save_data(_config.group.data, group)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been demoted*", 0, "md")
 				end		
