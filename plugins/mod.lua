@@ -62,7 +62,8 @@ local function action_by_reply(arg, data)
 				if group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is already a moderator*", 0, "md")
 				--end
-				elseif group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then				
+				else 
+					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then				
 					save_data(_config.group.data, group)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
 				end
@@ -83,7 +84,8 @@ local function action_by_reply(arg, data)
 				if not group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."] *is not a moderator*", 0, "md")
 				--end
-				elseif group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then				
+				else 
+					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then				
                                         save_data(_config.group.data, group)
 				        tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been demoted*", 0, "md")
 				end        		
@@ -123,7 +125,8 @@ local function action_by_username(arg, data)
 			if group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
 				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is already a moderator*", 0, "md")
 			--end
-			elseif group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then				
+			else 
+				group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then				
 				save_data(_config.group.data, group)
 				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
 			end
@@ -132,7 +135,8 @@ local function action_by_username(arg, data)
 			if not group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
 				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is not a moderator*", 0, "md")
 			--end
-			elseif group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then				
+			else 
+				group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then				
 				save_data(_config.group.data, group)
 				tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been demoted*", 0, "md")
 			end	
@@ -167,7 +171,8 @@ local function action_by_id(arg, data)
 				if group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is already a moderator*", 0, "md")
 				--end
-				elseif group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then 					
+				else 
+					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = user_name then 					
 					save_data(_config.group.data, group)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been promoted*", 0, "md")
 				end
@@ -176,7 +181,8 @@ local function action_by_id(arg, data)
 				if not group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] then
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *is not a moderator*", 0, "md")
 				--end
-				elseif group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then					
+				else 
+					group[tostring(arg.chat_id)]['moderators'][tostring(data.id_)] = nil then					
 					save_data(_config.group.data, group)
 					tg.sendMessage(arg.chat_id, "", 0, "[`"..data.id_.."`] *has been demoted*", 0, "md")
 				end		
