@@ -120,6 +120,16 @@ tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 if is_filter(msg, msg.text) then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end   
+local function isABotBadWay (user)
+local username = user.username_ or ''
+return username:match("[Bb]ot$")
+end      
+local group_lock_bot = group[tostring(msg.chat_id)]['settings']['lock_bot']
+local is_bot_msg = msg.text:match("^!!tgservice (chat_add_user)$") or msg.text:match("^!!tgservice (chat_add_user_link)$")
+if group_lock_bot == 'yes' and is_bot_msg and isABotBadWay(user) then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+
 end      
 --[[local group_reply_lock = group[tostring(msg.chat_id)]['settings']['lock_fosh']
 if group_reply_lock == 'yes' and msg.reply_to_message_id_~=0 then
