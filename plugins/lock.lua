@@ -677,7 +677,7 @@ pm = pm..'\n8- <code>Lock Sticker</code> : '..group[tostring(target)]['settings'
 pm = pm..'\n9- <code>Lock Contact</code> : '..group[tostring(target)]['settings']['lock_contact']..''
 pm = pm..'\n10- <code>Lock Location</code> : '..group[tostring(target)]['settings']['lock_location']..''
 pm = pm..'\n11- <code>Lock Game</code> : '..group[tostring(target)]['settings']['lock_game']..''
---pm = pm..'\n9- <code>Lock Bot</code> : '..group[tostring(target)]['settings']['lock_bot']..''
+pm = pm..'\n- <code>Lock Bot</code> : '..group[tostring(target)]['settings']['lock_bot']..''
 pm = pm..'\n12- <code>Lock Inline</code> : '..group[tostring(target)]['settings']['lock_inline']..''
 pm = pm..'\n13- <code>Lock Spam</code> : '..group[tostring(target)]['settings']['lock_spam']..''
 pm = pm..'\n14- <code>Lock English</code> : '..group[tostring(target)]['settings']['lock_english']..''
@@ -731,9 +731,9 @@ local function run(msg, matches)
 			lock_group_english(msg, msg.chat_id)
 		elseif matches[2] == 'arabic' then
 			lock_group_persian(msg, msg.chat_id)
-		--[[elseif matches[2] == 'bot' then
+		elseif matches[2] == 'bot' then
 			lock_group_bot(msg, msg.chat_id)
-		elseif matches[2] == 'flood' then
+		--[[elseif matches[2] == 'flood' then
 			lock_group_flood(msg, msg.chat_id)]]
 		elseif matches[2] == 'fosh' then
 			lock_group_fosh(msg, msg.chat_id)
@@ -784,9 +784,9 @@ local function run(msg, matches)
 			unlock_group_english(msg, msg.chat_id)
 		elseif matches[2] == 'arabic' then
 			unlock_group_persian(msg, msg.chat_id)
-		--[[elseif matches[2] == 'bot' then
+		elseif matches[2] == 'bot' then
 			unlock_group_bot(msg, msg.chat_id)
-		elseif matches[2] == 'flood' then
+		--[[elseif matches[2] == 'flood' then
 			unlock_group_flood(msg, msg.chat_id)]]
 		elseif matches[2] == 'fosh' then
 			unlock_group_fosh(msg, msg.chat_id)
