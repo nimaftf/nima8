@@ -3,7 +3,7 @@ local function pre_process(msg)
 	function del_bots(arg, data)
 		if data.username_ then
 			if string.sub(data.username_:lower(), -3) == 'bot' then
-				kick_user(arg.chat_id,data.id_)
+				kick_user(arg.chat_id,arg.id_)
 			end
 		end
 	end
