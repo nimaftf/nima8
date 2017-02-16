@@ -25,7 +25,9 @@ local is_persian_msg = msg.text:match("[\216-\219][\128-\191]")
 if group_lock_persian == 'yes' and is_persian_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-               
+if is_filter(msg, msg.media.caption) then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end               
 local group_lock_inline = group[tostring(msg.chat_id)]['settings']['lock_inline']
 --local is_inline_msg =  msg.text == "[unsupported]"
 if group_lock_inline == 'yes'  and  msg.via_bot_user_id_ ~= 0 then
