@@ -76,23 +76,4 @@ patterns ={
 run=run,
 }
 
---bot.lua
-function is_filter(msg, text)
-local var = false
-local group = load_data('bot/group.json')
-  if group[tostring(msg.chat_id_)]['filterlist'] then
-for k,v in pairs(group[tostring(msg.chat_id_)]['filterlist']) do 
-    if string.find(string.lower(text), string.lower(k)) then
-       var = true
-        end
-     end
-  end
- return var
-end
---bot.lua
 
---msg_checks.lua
-if is_filter(msg, msg.text) then
-	tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
-end
---msg_checks.lua
