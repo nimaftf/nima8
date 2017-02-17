@@ -9,6 +9,9 @@ local group_mute_all = group[tostring(msg.chat_id)]['settings']['mute_all']
 if group_mute_all == 'yes' then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
+if is_filter(msg, msg.text) then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end      
 local group_mute_photo = group[tostring(msg.chat_id)]['settings']['mute_photo']
 local is_photo_msg = msg.text:match("!!!photo:")
 if group_mute_photo == 'yes' and is_photo_msg then
